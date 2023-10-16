@@ -67,6 +67,11 @@ Sincronizacion de Procesos
 Cambio de Contexto
 
 
+## Introduccion a la Gestion de Memoria
+
+La gestion de memoria es le proceso de controlar y coordinar la forma en que un software accede a la memoria del computador.
+EL termino de memoria puede ser definido como una coleccion de datos en un formato especifico.
+
 ## POSIX
 Portable Operating System Interface for Unix
 Es un conjunto de estandares y derectrices para sistemas operativos tipo Unix. 

@@ -1,4 +1,84 @@
-# SQL
+# SQL  
+
+## SQL DATABASE
+## DATA DEFINITION LANGUAGE (DDL)
+
+### CREATE DATABASE 
+```
+CREATE DATABASE databasename;
+```
+
+### CREATE TABLE
+ ```
+create table table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+);
+ ```
+
+```
+create table employees (
+    id int not null,
+    name varchar(255) not null,
+    salary int,
+    department varchar(255),
+    position varchar(255)
+);
+```
+
+### ALTER TABLE
+Permite alterar la estructura de una tabla existente
+ ```
+alter table tablename
+add (columnname1 datatype,
+     columnname2 datatype,
+     ...
+     );
+ ```
+
+### DROP TABLE
+Se utiliza para eliminar una base de datos SQL existente.
+ ```
+DROP TABLE table_name;
+ ```
+
+### SQL TRUNCATE TABLE
+La declaración se utiliza para eliminar los datos dentro de una tabla, pero no la tabla en sí.
+```
+TRUNCATE TABLE table_name;
+```
+
+## DATA MANIPULATION LANGUAGE (DML)
+
+# INSERT 
+La instrucción INSERT INTO se utiliza para insertar nuevos registros en una tabla.
+```
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+```
+
+# UPDATE 
+El comando ACTUALIZAR en SQL se utiliza para modificar los registros existentes en una tabla.
+*La cláusula WHERE en la declaración UPDATE especifica qué registros modificar. Si omite la cláusula WHERE, ¡se actualizarán todos los registros de la tabla!
+```
+UPDATE table_name
+SET column1 = value1, column2 = value2...., columnN = valueN
+WHERE [condition];
+```
+`Set: Esta palabra clave se utiliza para establecer los valores de la columna.`
+
+# DELETE 
+La declaración DELETE se utiliza para eliminar registros existentes en una tabla.
+```
+DELETE FROM students WHERE student_id = '1001';
+```
+*Precaución: tenga mucho cuidado al utilizar la declaración DELETE. Si omite la cláusula WHERE, ¡se eliminarán todos los registros!
+
+M students WHERE student_id = '1001';
+
+# SELECT
 
 ## CLAUSE (WHERE, GROUP BY, HAVING, ORDER BY)
 
@@ -13,7 +93,7 @@ FROM table_name
 [ORDER BY column(s) [ASC|DESC]]
 ```
 ### WHERE
-La claula where es usada para filtrar registros 
+La clausula where es usada para filtrar registros 
 Operadores que pueden ser usados en la clausula WHERE
 
 Operator	Description
@@ -101,6 +181,14 @@ WHERE EmpId IN (1, 3, 5, 6)
 
 La query anterior retornara los registros donde EmpId es 1 o 3 o 5 o 6.
 
+## AGGREGATE FUNCTIONS
+- SUM
+- COUNT
+- AVG
+- MIN
+- MAX
+
+### MAS FUNCIONES ... 
 
 ## SQL EXPRESSIONS
 
