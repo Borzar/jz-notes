@@ -241,7 +241,7 @@ FROM TRIANGLES
 
 ## TRANSACTIONS
 
-Una transcaccion en SQL es una unidad de trabajo (unit of work) que se realiza en una base de datos
+Una transcaccion en SQL es una unidad de trabajo (unit of work) que se realiza en una base de datos.
 Una transaccion es un conjunto de operaciones (sentencias sql) que van a ser tratadas como una unidad de trabajo.
 Estas transacciones deben cumpllir 4 propiedades fundamentales conocidas como ACID(atomicidad, coherencia, aislamiento, durabilidad)
 
