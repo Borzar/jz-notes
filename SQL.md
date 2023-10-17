@@ -254,25 +254,25 @@ Se utilizan para garantizar  la integridad de los datos y manejar errores de la 
 
 ### BEGIN TRANSACTION
 Comando para iniciar una transaccion
-'''
+```
 BEGIN TRANSACTION;
-'''
+```
 
 ### COMMIT 
 El comando COMMIT es el comando transaccional utilizado para guardar los cambios invocados por una transacción en la base de datos.
 Cuando confirma la transacción, los cambios se guardan permanentemente en la base de datos.
-'''
+```
 COMMIT;
-'''
+```
 
 ### ROLLBACK 
 The ROLLBACK command is the transactional command used to undo transactions that have not already been saved to the database.
-'''
+```
 ROLLBACK;
-'''
+```
 
 ### EJEMPLO
-'''
+```
 BEGIN TRANSACTION;
 
 UPDATE Accounts SET Balance = Balance - 100 WHERE id = 1;
@@ -282,10 +282,10 @@ IF @@ERROR = 0
    COMMIT;
 ELSE
    ROLLBACK;
-'''
+```
 
 ### OTRO EJEMPLO
-'''
+```
 USE NorthWind
 DECLARE @Error int
 --Declaramos una variable que utilizaremos para almacenar un posible código de error
@@ -320,7 +320,7 @@ If @@Error<>0 THEN
 	--todo volverá a estar como si nada hubiera ocurrido
 	ROLLBACK TRAN
 	END
-'''
+```
 
 
 
