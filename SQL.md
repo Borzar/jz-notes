@@ -1,7 +1,4 @@
-# SQL  
-
-## SQL DATABASE
-## DATA DEFINITION LANGUAGE (DDL)
+# DATA DEFINITION LANGUAGE (DDL)
 
 ### CREATE DATABASE 
 ```
@@ -50,16 +47,16 @@ La declaración se utiliza para eliminar los datos dentro de una tabla, pero no 
 TRUNCATE TABLE table_name;
 ```
 
-## DATA MANIPULATION LANGUAGE (DML)
+# DATA MANIPULATION LANGUAGE (DML)
 
-# INSERT 
+## INSERT 
 La instrucción INSERT INTO se utiliza para insertar nuevos registros en una tabla.
 ```
 INSERT INTO table_name (column1, column2, column3, ...)
 VALUES (value1, value2, value3, ...);
 ```
 
-# UPDATE 
+## UPDATE 
 El comando ACTUALIZAR en SQL se utiliza para modificar los registros existentes en una tabla.
 *La cláusula WHERE en la declaración UPDATE especifica qué registros modificar. Si omite la cláusula WHERE, ¡se actualizarán todos los registros de la tabla!
 ```
@@ -69,7 +66,7 @@ WHERE [condition];
 ```
 `Set: Esta palabra clave se utiliza para establecer los valores de la columna.`
 
-# DELETE 
+## DELETE 
 La declaración DELETE se utiliza para eliminar registros existentes en una tabla.
 ```
 DELETE FROM students WHERE student_id = '1001';
@@ -78,7 +75,7 @@ DELETE FROM students WHERE student_id = '1001';
 
 M students WHERE student_id = '1001';
 
-# SELECT
+## SELECT
 
 ## CLAUSE (WHERE, GROUP BY, HAVING, ORDER BY)
 
@@ -182,15 +179,30 @@ WHERE EmpId IN (1, 3, 5, 6)
 La query anterior retornara los registros donde EmpId es 1 o 3 o 5 o 6.
 
 ## AGGREGATE FUNCTIONS
+Las funciones agregadas de SQL son funciones incorporadas que se utilizan 
+para realizar algunos cálculos sobre los datos y devolver un valor único. 
+Por eso constituyen la base de las "consultas agregadas". Estas funciones 
+operan en un conjunto de filas y devuelven un único resultado resumido.
+
 - SUM
 - COUNT
 - AVG
 - MIN
 - MAX
 
-### MAS FUNCIONES ... 
+### STRING FUNCTIONS
+- CONCAT
+- LENGTH
+- UPPER
+- LOWER
+- REPLACE
 
-## SQL EXPRESSIONS
+### NUMERIC FUNCTIONS
+- FLOOR
+- ROUND
+- Y MAS 
+
+## CONDITIONAL 
 
 ### CASE
 
@@ -226,4 +238,90 @@ SELECT
     END AS TRIANGLE
 FROM TRIANGLES
 ```
+
+## TRANSACTIONS
+
+Una transcaccion en SQL es una unidad de trabajo (unit of work) que se realiza en una base de datos
+Una transaccion es un conjunto de operaciones (sentencias sql) que van a ser tratadas como una unidad de trabajo.
+Estas transacciones deben cumpllir 4 propiedades fundamentales conocidas como ACID(atomicidad, coherencia, aislamiento, durabilidad)
+
+Si una transaccion tiene exito, todas las modificaciones de los datos realizadas durante la transaccion se confirman y se 
+convierten en una parte pemanente de la base de datos. Si una transaccion encuentra erroeres, se borran todas las modificaciones
+de los datos.
+Una transaccion es una serie de una o varias operaciones relacionadas con la BD
+Se utilizan para garantizar  la integridad de los datos y manejar errores de la BD durante el procesamiento.
+
+
+### BEGIN TRANSACTION
+Comando para iniciar una transaccion
+'''
+BEGIN TRANSACTION;
+'''
+
+### COMMIT 
+El comando COMMIT es el comando transaccional utilizado para guardar los cambios invocados por una transacción en la base de datos.
+Cuando confirma la transacción, los cambios se guardan permanentemente en la base de datos.
+'''
+COMMIT;
+'''
+
+### ROLLBACK 
+The ROLLBACK command is the transactional command used to undo transactions that have not already been saved to the database.
+'''
+ROLLBACK;
+'''
+
+### EJEMPLO
+'''
+BEGIN TRANSACTION;
+
+UPDATE Accounts SET Balance = Balance - 100 WHERE id = 1;
+UPDATE Accounts SET Balance = Balance + 100 WHERE id = 2;
+
+IF @@ERROR = 0
+   COMMIT;
+ELSE
+   ROLLBACK;
+'''
+
+### OTRO EJEMPLO
+'''
+USE NorthWind
+DECLARE @Error int
+--Declaramos una variable que utilizaremos para almacenar un posible código de error
+
+BEGIN TRAN
+--Iniciamos la transacción
+UPDATE Products SET UnitPrice=20 WHERE ProductName ='Chai'
+--Ejecutamos la primera sentencia
+SET @Error=@@ERROR
+--Si ocurre un error almacenamos su código en @Error
+--y saltamos al trozo de código que deshara la transacción. Si, eso de ahí es un
+--GOTO, el demonio de los programadores, pero no pasa nada por usarlo
+--cuando es necesario
+IF (@Error<>0) GOTO TratarError
+
+--Si la primera sentencia se ejecuta con éxito, pasamos a la segunda
+UPDATE Products SET UnitPrice=20 WHERE ProductName='Chang'
+SET @Error=@@ERROR
+--Y si hay un error hacemos como antes
+IF (@Error<>0) GOTO TratarError
+
+--Si llegamos hasta aquí es que los dos UPDATE se han completado con
+--éxito y podemos "guardar" la transacción en la base de datos
+COMMIT TRAN
+
+TratarError:
+--Si ha ocurrido algún error llegamos hasta aquí
+If @@Error<>0 THEN
+	BEGIN
+	PRINT 'Ha ecorrido un error. Abortamos la transacción'
+	--Se lo comunicamos al usuario y deshacemos la transacción
+	--todo volverá a estar como si nada hubiera ocurrido
+	ROLLBACK TRAN
+	END
+'''
+
+
+
 
