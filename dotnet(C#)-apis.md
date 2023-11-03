@@ -220,7 +220,7 @@ public class MyRequest : IRequest<string>
 }
 
 // MyRequest: una clase que representa una solicitud. 
-// IRequest<string> : Indica que eta solicitud esta solicitud espera como resultado de tipo string despues de ser manejada.
+// IRequest<string> : Indica que esta solicitud espera como resultado de tipo string despues de ser manejada.
 
 // IRequest<TResponse>
 // Es una interfaz generica que se utiliza para representar una soliciud que puede ser manejado por un handler.
