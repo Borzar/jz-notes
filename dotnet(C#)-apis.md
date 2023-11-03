@@ -399,6 +399,47 @@ usadas para interactuar con la aplicacion sin tener conocimiento de lo que hay p
     
 ## C#
 
+### Colecciones
+
+Son clases de c# que representan estructuras de datos
+Las colecciones son estructuras de datos (tamaño dinicamico y no fijo como los arrays) que permiten manipular y almacenar un conjunto de elementos o datos relacionados.
+Agregar, eliminar, buscar e insertar datos en la coleccion, son algunos ejemplos de manipulacion de datos.
+
+### Algunas operaciones basicas que son posibles en cualquier coleccion:
+
+- Buscar objetos especificos en cualquier coleccion.
+- Agregar o remover objetos dinamicamente en la coleccion.
+- Iterar la coleccion. 
+
+#### Porque una coleccion  ? 
+
+- El tamaño de un array es fijo y no puede ser incrementado dinamicamente.
+- En escenarios actuales de desarrollo se nececita procesar y agregar dinamicamente el mismo tipo de objetos y el tamaño de de los elementos debe crecer o reducirce en concecuencia.
+- Ademas la forma en que se deben almacenar estos objetos puede ser diferente, puede ser de forma secuencial, no secuencial, ordenados, etc.
+
+
+#### Caracteristicas
+
+- Son clases que pertenecen al namespace System.Collection.Generic (y no generica en System.Collections)
+- La mayoria de las clases de coleccion implementan las mismas interfaces.
+- Estas colecciones implementan interfaces como IEnumerable, IReadOnlyColecction, ICollection por nombrar algunas. 
+- Cada clase de coleccion definida implementa una caracteristica unica.
+
+##### Tipos de colecciones en C#
+- List<T>
+- Dictionary<T>
+- SortedList
+- Stack<T> = FIFO (first-in, first-out) 
+- Queue<T>
+
+Las clases genericas 
+
+
+
+
+
+
+
 ### Linq
 Lenguaje de consulta de .net. Generalmente utilizado para  consultas a las bases de datos
 
