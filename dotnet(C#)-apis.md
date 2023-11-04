@@ -381,7 +381,9 @@ Normalmente los atributos se utilizan en combinacion con los filtros para defini
 El Contexto de Datos en Entity Framework Core
 Context: contexto a la base de datos
 
-## Automapper(libreria) = _mapper
+## Automapper
+
+*_mapper*
 Asignar valores de un objeto a otro (Ejmplo Model a los DTO)
 
 ## Paquetes Nuget 
@@ -415,7 +417,7 @@ Es una interfaz que permite ejecutar consultas LINQ.
 `NO PERMITE` operaciones de edicion sobre los elementos (agregar, eliminar, actualizar, etc)
 `NO PERMITE` recuentos de dichos elementos, si quieres saber la cantidad total debes obtenerla manualmente mediante un foreach.
 
-**Cuando usarla?** Lo unico que quieres iterar sobre los elementos de una coleccion. Solo necesita acceso de solo lectura a esa coleccion.
+`CUANDO USARLA` Lo unico que quieres iterar sobre los elementos de una coleccion. Solo necesita acceso de solo lectura a esa coleccion.
 
 ### ICollection
 
@@ -423,18 +425,20 @@ Deriva directamente de IEnumerable.
 
 `PERMITE` agregar, editar, eliminar y contar los elementos de una coleccion (.Count).
 
-**Cuando usarla?** Cuando es necesario modificar la coleccion o se necesita su tamaño. 
+`CUANDO USARLA` Cuando es necesario modificar la coleccion o se necesita su tamaño. 
 
 ### IList
 
 Deriva directamente de IColecction
 
-Reune todos las caracteristicas de IEnumerable y IColecction, agregando la funcionalidad de indexacion, esto significa que la posicion en la 
+Reune todos las caracteristicas de IEnumerable y IColecction, 
+
+`PERMITE` Agrega la funcionalidad de indexacion, esto significa que la posicion en la 
 que se almacenan los datos es importante. Debera usarse cuando se quiera tener una coleccion ordenada o acceder a posiciones especificas.
 
-**Cuando usarla?** Cuando es necesario modfiicar la coleccion y se nececita ordenamiento y/o posicionamiento de los elementos de la coleccion. 
+`CUANDO USARLA` Cuando es necesario modfiicar la coleccion y se nececita ordenamiento y/o posicionamiento de los elementos de la coleccion. 
 
-*SI NO ESTAS SEGURO SOBRE QUE COLECCION UTILIZAR ILIST SIEMPRE ES LA "VIEJA CONFIABLE".
+**SI NO ESTAS SEGURO SOBRE QUE COLECCION UTILIZAR ILIST SIEMPRE ES LA "VIEJA CONFIABLE".**
 
 ## Colecciones
 
