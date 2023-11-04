@@ -417,7 +417,7 @@ Es una interfaz que permite ejecutar consultas LINQ.
 `NO PERMITE` operaciones de edicion sobre los elementos (agregar, eliminar, actualizar, etc)
 `NO PERMITE` recuentos de dichos elementos, si quieres saber la cantidad total debes obtenerla manualmente mediante un foreach.
 
-`CUANDO USARLA` Lo unico que quieres iterar sobre los elementos de una coleccion. Solo necesita acceso de solo lectura a esa coleccion.
+`CUANDO USAR` Lo unico que quieres iterar sobre los elementos de una coleccion. Solo necesita acceso de solo lectura a esa coleccion.
 
 ### ICollection
 
@@ -425,7 +425,7 @@ Deriva directamente de IEnumerable.
 
 `PERMITE` agregar, editar, eliminar y contar los elementos de una coleccion (.Count).
 
-`CUANDO USARLA` Cuando es necesario modificar la coleccion o se necesita su tamaño. 
+`CUANDO USAR` Cuando es necesario modificar la coleccion o se necesita su tamaño. 
 
 ### IList
 
@@ -436,9 +436,9 @@ Reune todos las caracteristicas de IEnumerable y IColecction,
 `PERMITE` Agrega la funcionalidad de indexacion, esto significa que la posicion en la 
 que se almacenan los datos es importante. Debera usarse cuando se quiera tener una coleccion ordenada o acceder a posiciones especificas.
 
-`CUANDO USARLA` Cuando es necesario modfiicar la coleccion y se nececita ordenamiento y/o posicionamiento de los elementos de la coleccion. 
+`CUANDO USAR` Cuando es necesario modfiicar la coleccion y se nececita ordenamiento y/o posicionamiento de los elementos de la coleccion. 
 
-**SI NO ESTAS SEGURO SOBRE QUE COLECCION UTILIZAR ILIST SIEMPRE ES LA "VIEJA CONFIABLE".**
+***Si no estas seguro sobre que coleccion utilizar IList siempre es la "vieja confiable.***
 
 ## Colecciones
 
