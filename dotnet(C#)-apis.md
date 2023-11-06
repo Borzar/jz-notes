@@ -440,6 +440,45 @@ que se almacenan los datos es importante. Debera usarse cuando se quiera tener u
 
 ***Si no estas seguro sobre que coleccion utilizar IList siempre es la "vieja confiable.***
 
+### IList vs List
+
+Para entender la diferencia primero tenemos que entender la diferencia entre clases y interfaces.
+IList es una interface y List es una clase en concreta que utiliza IList.
+
+Siempre tenemos que codificar en terminos de interfaces, ya que proporciona un codigo mas generico. 
+Solo debemos tener presente y asegurarmos que clase extienda de IList. 
+
+Para que cada vez que nuestro tipo o clase cambie en el futuro podamos
+adaptarnos a cualquier tipo que implemente la interfaz mencionada.
+
+Sin embargo si utilizamos las clase List tenemos a disposicion muchos metodos que estan presenten especificamente en la clase List. 
+Por ejemplo el metodo Sort().
+
+```
+    List<string> myList = new List<string>();
+
+    Display(myList);
+
+    GenericDisplay(myList);
+
+
+    private static void GenericDisplay(IList<string> myList) // Acepta cualquier clase que implemente IList
+    {
+        foreach (var item in myList)
+        {
+            Console.WriteLine(item);
+        }
+    }
+
+    private static void Display(List<string> myList)
+    {
+        foreach (var item in myList)o
+        {
+            Console.WriteLine(item);
+        }
+    }
+```
+
 ## Colecciones
 
 Son clases de C# que representan estructuras de datos
