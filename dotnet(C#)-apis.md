@@ -533,9 +533,8 @@ Por ejemplo la funcion seTimeout recibe un callback que se ejecutara segun los e
 señalado en la funcion
 
 ## Conexion  base de datos MySqL con C#
- y para establecer esas variables com parametros se usea parameters.add.
-comando.Parameters.Add("?var")  -> Se utiliza en consultas SQL con parametros y para evitar sql inyection. Si hay consultas o precedimientos con parametros, 
-los parametros son agregados mediante .add e indicar los parametros de la funcioon.
+Comando.Parameters.Add("?var")  -> Se utiliza en consultas SQL con parametros y para evitar sql inyection. Si hay consultas o precedimientos con parametros, 
+los parametros son agregados mediante .add e indicar los parametros de la funcion.
 
 comando.ExecuteNonQuery()       -> Para ejecutar una consulta contra la base de datos (INSERT, UPDATE, DELETE)
 comando.ExectuteReader()        -> Se utiliza para leer la base de datos. Para retornar los valores de la base de datos(GET)
