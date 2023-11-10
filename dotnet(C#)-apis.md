@@ -536,6 +536,7 @@ señalado en la funcion
 Comando.Parameters.Add("?var")  -> Se utiliza en consultas SQL con parametros y para evitar sql inyection. Si hay consultas o precedimientos con parametros, 
 los parametros son agregados mediante .add e indicar los parametros de la funcion.
 
-comando.ExecuteNonQuery()       -> Para ejecutar una consulta contra la base de datos (INSERT, UPDATE, DELETE)
-comando.ExectuteReader()        -> Se utiliza para leer la base de datos. Para retornar los valores de la base de datos(GET)
+comando.ExecuteNonQuery()       -> Para ejecutar una consulta contra la base de datos (INSERT, UPDATE, DELETE).
+
+comando.ExectuteReader()        -> Se utiliza para leer la base de datos. Para retornar los valores de la base de datos(GET).
 
