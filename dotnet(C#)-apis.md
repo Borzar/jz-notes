@@ -397,9 +397,25 @@ usadas para interactuar con la aplicacion sin tener conocimiento de lo que hay p
     
 # C#
 
+## Diferencias entre un array y colecciones
+Los arrays y colecciones son estructuras de datos en programacion que se utilizan para almacenar y manipular conjuntos
+de elementos, Pero hay algunas diferencias:
+
+- Tipos de Datos: 
+Los Arrays son estructuras de datos que almacenan elementos del mismo tipo en una secuencia contigua en memoria.
+Todos los elementos deben ser del mismo tipo.
+
+Las colecciones, proporcionadad por el espacio de nombres System.Collections y System.Collections.Generic, pueden almacenar
+elementos de diferentes tipos y pueden ser mas flexibles en terminos de manipulacion de datos.
+
+-Tamaño: Los arrays tienen un tamaño fijo que se establece al crearlos y no puede cambiar dinamicamente. 
+
+Las colecciones como las Listas, pueden cambiar de tamaño dinamicamente.
+
+
 ## Interfaces
 
-IEnumerable, ICollection e IList son interfaces en .NET, las cuales son utilizadas frecuentemente. IEnumerable 
+EnIEnumerable, ICollection e IList son interfaces en .NET, las cuales son utilizadas frecuentemente. IEnumerable 
 es la base de las interfaces ICollection e IList (y muchas otras).
 
 Se encuentran en el namespace System.Colecctions 
@@ -411,6 +427,23 @@ IEnumerable > IColecction > IList
 ### IEnumerable
 
 Es una interfaz que permite ejecutar consultas LINQ.
+Es una interfaz que se utiliza para representar una secuencia de elementos que se pueden iterar.
+
+Por ejemplo el metodo ToList() esta disponible  en el contexto de las colecciones que implementan la interfaz IEnumerabl<T>.
+
+Estre metodo se encuentra en la clase System.Linq.Enumerable y proporciona una forma conveniente de convertir una secuencia
+(IEnumerable) en una lista (List<T>).
+
+(explicacion larga)
+
+IEnumerable es una interfaz en el framework .NET que define un método llamado GetEnumerator(). Este método devuelve un objeto que 
+implementa la interfaz IEnumerator. La interfaz IEnumerator a su vez proporciona métodos como MoveNext() y Current para realizar 
+la iteración a través de una colección de elementos, uno a la vez.
+
+Por ejemplo un Array ya implementa la interfaz IEnumerable, por lo que podemos iterar mediante un foreach.
+En terminos simples IEnumerable es una interfaz diseñada para facilitar la iteracion a traves de una secuencia de elementos, pero 
+no especifican como se alamacenan o estructuran esos elementos. Pueden ser implementadas por diversas estructuras de datos, 
+como arrays, listas, conjuntos y otros tipos de colecciones.
 
 `PERMITE` recorrer mediante itereacion `FOREACH` cada uno de los elementos y ejecutar filtros de busqueda con la clausula `WHERE`.
 
