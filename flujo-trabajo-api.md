@@ -14,7 +14,7 @@ fijate que el request devuelve un decimal (IRequest del model)
 * Interfaces => Las interfaz contienen todos los procedimientos almacenados del Package. Esta interfaz se utiliza el repository y en BO.
 * Mapper => ordenado por #region segun el business. Por Ejemplo #region Proceso --- #endregion
 * Repository => Cada repository apunta a uno o mas packages y adentro sus procedimientos almacenados.
-* BO => Cada BO representa un packeage.
+* BO => Cada BO representa un procedimiento almacenado.
 
 
 Ejemplo: 
