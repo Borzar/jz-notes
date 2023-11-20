@@ -296,15 +296,17 @@ clase que administra y aloja nuestra app asp.net core)
 Adentro del builder registramos los sevicios que la app nececite    
 
 ## Services
-Se refiere a los servicios que se agrega al contenedor de inyeccion de dependencias durante la configuracion 
-de la app.
+Se refiere a los servicios que se agrega al contenedor de inyeccion de dependencias.  
 
 El contenedor de servicios es una caracteristica de asp net que permite la inyeccion de dependencias.
 
-Registrar servicio, significa poner a disposicion un servicio para y utilizar en nuestra app mediante un constructor
-(sin inyeccion (se agrega al contener de inyeccion de dependencias), la inyeccion ocurre cuando se genera en el constructor de la clase)
+Registrar servicio, significa poner a disposicion un servicio para y utilizar en nuestra app mediante un constructor.
+La inyeccion ocurre cuando se genera en el constructor de la clase)
 
     -   Tipos de servicios, se puede implementar el algun patron de inyeccion de dependencias (transient, scoped, singleton)
+
+## IConfiguration
+IConfiguration se utliza comunmente para acceder a valores definidos en el archivo appsettings.json y en otros origines de configuracion.
 
 ## Objeto app
 Las operaciones que se van a ejecutar por cada peticion en una app de net core
