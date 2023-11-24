@@ -61,22 +61,38 @@ Es el medio principal para documentar estándares y protocolos técnicos.
 
 ## Seguridad - Core Identity
 
-Autenticacion(login) y Autorizacion (roles)
+Autenticacion(login) y Autorizacion (roles).
  
-Es un sistema de identitad que nos permite llevar el control de usuarios, roles, manejo de contraseñas.
-Gestiona usuarios, contraseñas, datos de perfil, roles, claims, tokens, confirmacion de email y mas.
+Nos permite almacenar la informacion de nuestros usuarios y la autorizacion a estos usuarios en nuestra app.
 
-Nos permite almacenar la informacion de nuestros usuarios y al mismo tiempo nos dara mecanismos para 
-poder trabajar el acceso o la autorizacion a estos usuarios a nuestra app.
-Cuando se imnplementa Identity se realiza una migracion de tablas para implementar la seguridad con Core Identity
-Cuando se implementa Identity nos dara unas tablas en nuestra base de datos para guardar todo lo relacionado a nuestro 
-sistema de usuarios y nos permitira acceder a un conjunto de funciones para el mantenimiento del sistema de usuarios
+Es un sistema de identitad que nos permite llevar el control de usuarios, roles, contraseñas, claims, tokens, confirmacion de email y mas.
 
-Identity nos provee nos da un conjunto de clases para realizar toda la funcionalidad de un sistema de usuarios tipico:
-incluye :
-    -Registro de un usuario: 
-    servicio que permite ingresar un usuario es UserManager. Se le pasa una clase que identifica a un usuario de nuestro aplicacion.
-    Esta es IdentityUser. Ejemplo UserManger<IdentityUser>
+Soporta proveedores externos como Facebook, Google, Twitter, etc.
+
+Identity Core te da la estructura (tablas) para que mediante comandos (mediante EF) puedas crear tablas y la logica de seguridad de tu aplicacion. 
+
+Flujo:
+
+1. Cliente (React) envia Usuario y Contraseña. 
+
+2. Idendity reconoce esta data mediante un controller y valida que estos datos existan en la base de datos.
+
+3. Si estos existen y son validos, se generara un token (JWT) con la informacion relevante al usuario (Claims).
+
+4. El JWT se envia al cliente. 
+
+5. El cliente almancena ese JWT localmente (localstorage, cookie, variable local del browser).
+
+6. Teniendo ese token almacenado, puede enviar ese token como referencia al identity core para acceso  a otros recursos.
+7. Ejemplo: Si queremos obtener una lista de tareas, lo que tendria que hacer el Cliente (React) es adjuntar en la request el token -> Idendity
+valida que ese token sea el correcto  y le da acceso a todo el servicio para obtener la data.
+
+Identity nos provee nos da un conjunto de clases para realizar la funcionalidad de un sistema de usuarios tipico:
+
+Incluye :
+
+    - Registro de un usuario: UserManager<T>
+    - Login: SignInManager<T>
 
 ## Authentication
 
@@ -307,6 +323,18 @@ La inyeccion ocurre cuando se genera en el constructor de la clase)
 
 ## IConfiguration
 IConfiguration se utliza comunmente para acceder a valores definidos en el archivo appsettings.json y en otros origines de configuracion.
+
+    - settings files, such as appsettings.json
+    - Environment variables
+    - Azure Key Vault
+    - Azure App Configuration
+    - Command-line arguments
+    - Custom providers, installed or created
+    - Directory files
+    - In-memory .NET objects
+
+## Patron Options
+
 
 ## Objeto app
 Las operaciones que se van a ejecutar por cada peticion en una app de net core
