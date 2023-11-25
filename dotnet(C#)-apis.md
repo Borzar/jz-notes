@@ -321,7 +321,10 @@ La inyeccion ocurre cuando se genera en el constructor de la clase)
 
     -   Tipos de servicios, se puede implementar el algun patron de inyeccion de dependencias (transient, scoped, singleton)
 
-## IConfiguration
+## IConfiguration (Configuration es una instancia de IConfiguration)
+
+Se utiliza para acceder a las configuracion de la aplicacion.
+
 IConfiguration se utliza comunmente para acceder a valores definidos en el archivo appsettings.json y en otros origines de configuracion.
 
     - settings files, such as appsettings.json
@@ -332,6 +335,66 @@ IConfiguration se utliza comunmente para acceder a valores definidos en el archi
     - Custom providers, installed or created
     - Directory files
     - In-memory .NET objects
+
+## IOptions y Configure
+
+Configure es  utilizado para vincular secciones especificas de la configuracion a clases que representan esas opciones.
+
+Para acceder a esas opciones  las clases implementan IOptions<T>.
+
+IOptions es una interfaz que se utiliza para acceder a las opciones de configuracion de tu app de una manera desacoplada (por intermedio de clases).
+
+Permite pruebas unitarias mediante la inyeccion de opciones.
+
+Permite tener difererentes configuraciones para diferentes entornos(Desarrollo y produccion).
+
+1. Clase MyOptions:
+
+```
+public class MyOptions
+{
+    public string Option1 { get; set; }
+    public int Option2 { get; set; }
+}
+```
+
+2. Configuración en el archivo appsettings.json:
+
+```
+{
+  "MyOptions": {
+    "Option1": "Value1",
+    "Option2": 42
+  }
+}
+```
+
+3. Registro de las opciones en el contenedor de dependencias: 
+
+```
+services.Configure<MyOptions>(Configuration.GetSection("MyOptions"));
+```
+
+4. Inyección de dependencias y uso:
+
+```
+public class MyService
+{
+    private readonly MyOptions _myOptions;
+
+    public MyService(IOptions<MyOptions> options)
+    {
+        _myOptions = options.Value;
+    }
+
+    public void DoSomething()
+    {
+        // Acceder a las opciones
+        var option1Value = _myOptions.Option1;
+        var option2Value = _myOptions.Option2;
+    }
+}
+```
 
 ## Patron Options
 
