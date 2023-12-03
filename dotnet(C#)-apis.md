@@ -93,6 +93,7 @@ Incluye :
 
     - Registro de un usuario: UserManager<T>
     - Login: SignInManager<T>
+    - Roles: RoleManager<IdentityRole>
 
 ## Authentication
 
@@ -112,6 +113,19 @@ El CORS se debe habilitar para permitir el intercambio de recurusos de origin cr
 Esto es debido a que hay una medida de seguridad por defecto que impide hacer peticiones http desde un navegador X a un endpoint de origen Y (dominio).
 Se llama "Politica de seguridad del mismo origen"
 Es una politica de seguridad de navegadores
+
+Cuando hablamos de CORS (Cross-Origin Resource Sharing en inglés, que en español sería algo así como intercambio de recursos de origen cruzado) nos referimos 
+a un mecanismo de seguridad que aplican los navegadores cuando estamos haciendo una petición a un recurso que está alojado en otro origen. 
+Si el recurso está en otro origen, el navegador automáticamente comprobará las cabeceras HTTP buscando una autorización expresa por parte del servidor.
+
+Por repasar, te recuerdo que el concepto origen es la suma de protocolo, dominio y puerto. Es decir, CORS aplica cuando el origen es diferente, 
+por lo tanto se comprueba que sea el mismo protocolo (http o https), el mismo dominio (sin incluir subdominios) y el mismo puerto (80, 443, 8080, etc.). 
+Si el origen que hace la petición no coincide con el origen del recurso entra CORS en juego.
+
+Por ejemplo, imagina que estás diseñando una aplicación que está ubicada en miapp.es y las peticiones de datos las realiza a una API, 
+situada en api.miapp.es. En cuanto vayas a hacer una consulta con el método fetch de JS al dominio 
+(o subdominio donde en este caso tienes la API) te aparecerá el siguiente error:
+
 
 # Patrones de diseño 
 
