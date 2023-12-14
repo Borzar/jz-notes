@@ -504,6 +504,19 @@ usadas para interactuar con la aplicacion sin tener conocimiento de lo que hay p
     
 # C#
 
+## Carpetas OBJ y BIN
+Son directorios generados durante el proceso de compilación de un proyecto.
+
+La carpeta /obj es utilizada por compilador para guardar archivos temporales que necesita generar como paso previo 
+a los archivos finales que genera en la carpeta \bin cuando finaliza la compilación.
+
+La carpeta /obj se utiliza para almacenar archivos temporales y objetos intermedios generados durante el proceso de compilación. 
+Estos archivos son necesarios para producir los archivos binarios finales en la carpeta bin.
+
+La carpeta bin contiene archivos binarios, que son el código ejecutable real para su aplicación o biblioteca.
+
+Cada una de estas carpetas se subdivide en carpetas Debug(depurar) y Release(lanzar), que simplemente corresponden a las configuraciones de compilación del proyecto.
+
 ## Diferencias entre un array y colecciones
 Los arrays y colecciones son estructuras de datos en programacion que se utilizan para almacenar y manipular conjuntos
 de elementos, Pero hay algunas diferencias:
