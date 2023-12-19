@@ -1,3 +1,152 @@
+# Caching (Almacenamiento en cache)
+
+El almacenamiento en cache es una tecnica para almacenar datos o informacion de uso frecuente en memoria local (RAM),
+durante un periodo de tiempo determinado.
+
+Por ejemplo si hablamos de la CPU, esta tiene su propio cache (memoria local o interna)
+
+Entonces, la siguiente vez, cuando el cliente solicita la misma informacion, en vez de consultar la informacion
+a la base de datos, esta informacion sera dada desde la memoria local.
+
+La gran ventaja del almacenamiento cache es que mejora el rendimiento al reducir la carga de procesamineto. 
+
+## Tipos de caches
+
+### Caché de bases de datos
+
+En aplicaciones web que utilizan bases de datos, se puede implementar la cache para almacenar en memoria resultados de 
+consultas frecuentes. Esto reduce la carga en la base de datos y acelera la recuperar de datos.
+
+Aquí hay algunas ubicaciones comunes donde se puede almacenar el caché de una base de datos:
+
+Memoria RAM: La caché de una base de datos a menudo se almacena en la memoria RAM del sistema. La RAM es más rápida 
+que otros tipos de almacenamiento, lo que permite un acceso rápido a los datos almacenados en caché.
+
+Cache distribuidas: En sistemas distribuidos, la caché puede distribuirse entre varios nodos o servidores para 
+mejorar el rendimiento y la escalabilidad. Cada nodo puede tener su propia caché local.
+
+Disco duro o SSD
+
+### Cache de hardware (CPU)
+
+Se encuentra a nivel del procesador y almacena datos e intrucciones frecuentemente utilizados para evitar acceder 
+a la memoria principal, que es mas lenta.
+
+el caché de la CPU se refiere a una memoria pequeña y ultrarrápida incorporada en el procesador (o cerca de él) 
+que almacena copias de datos y/o instrucciones utilizadas con frecuencia para reducir los tiempos de acceso a 
+la memoria principal. Este tipo de caché está diseñado para mejorar el rendimiento de la CPU al minimizar los 
+tiempos de espera para la recuperación de datos.
+
+### Cache de software
+
+Implementado a nivel de aplicacion o del sistema operativo para almacenar resultados de operaciones costosas o datos
+utilizados con frecuencia. Puede incluir cache en disco, cache de base de datos, entre otros.
+
+Cuando se menciona que algunas aplicaciones implementan su propio mecanismo de caché a nivel de aplicación, generalmente 
+se refiere a que la aplicación reserva parte de la memoria del sistema (memoria RAM) para almacenar temporalmente datos 
+que se acceden con frecuencia. Esta memoria en la que se almacena el caché a nivel de aplicación puede ser conocida 
+como "memoria caché de la aplicación" o simplemente "memoria caché".
+
+Además de la memoria RAM, algunas aplicaciones también pueden utilizar archivos temporales en el sistema de archivos 
+del dispositivo para almacenar datos en caché. Estos archivos temporales actúan como almacenamiento persistente que 
+puede retener el caché incluso después de que la aplicación se cierre y se reinicie.
+
+En resumen, el caché a nivel de aplicación puede almacenarse en la memoria RAM de la máquina donde se ejecuta la 
+aplicación, así como en archivos temporales en el sistema de archivos. La elección entre estas opciones depende de los requisitos y el diseño específico de la aplicación.
+
+### Cache de red
+
+Se utiliza para almacenar copias locales de datos obtenidos a traves de red, reduciendo asi la latencia y el
+trafico de red.
+
+### Cache Navegador
+
+Los navegadores web almacenan en cache recursos como images, hojas de estilo css, scripts de JS y otras partes de 
+una pagina web.
+
+Cuando un usuario vuelve a visitar una pagina, el navegador puede cargar estos recursos desde la cache local en lugar
+de descargarlos nuevamente del servidor, lo que acelera el tiempo de carga.
+
+Cuando visitas una página web, el navegador descarga y almacena localmente varios tipos de recursos, como imágenes, 
+hojas de estilo, scripts, fuentes y otros archivos. Estos recursos se almacenan en una ubicación temporal llamada 
+"caché del navegador".
+
+## Client Side Caching (Almacenamiento en caché del lado del cliente)
+
+El almacenamineto en cache del lado del cliente es el almacenamiento de datos de la red en un caché local para su
+reutilizacion futura.
+
+Despues de que una palicacion recupera datos de la red, almacena ese recurso en una memoria cache local. Una vez que 
+un recurso se ha almacenado en cache, el navegador utiliza el cache en futuras solicitudes de ese recurso para mejorar el
+rendimiento.
+
+## Server-side caching (Almacenamiento en caché del lado del servidor)
+
+Los servidores web tambien pueden implementar tecnicas de almacenamiento en cache. Por ejemplo, se pueden almacenar en cache
+las respuestas generadas dinamicamente para solicitudes frecuentes, evitando asi tener que volver a generar la misma
+respuesta cada vez que se realiza la misma solicitud.
+
+El almacenamiento en cache del lado del servidor almacena temporalmente archivos y datos web en el servidor
+de origen para reutilizarlos mas adelante.
+
+Cuando el usuario solicita la pagina web por primera vez, el sitio web pasa por  el proceso normal de recuperacion de datos
+del servidor y genera o construye la pagina web del sitio web. UNa vez realizada la solicitud y enviada la respuesta, 
+el servidor copia la pagina web y la almacena como cache.
+
+La proxima vez que el usuario vuelva a visitar el sitio web, carga la copia ya guardada o en cache de la pagina web,
+lo que la hace mas rapida.
+
+## CDN (Content Delivery Network)
+
+Las CDN son redes de servidores distribuidos globalmente que almacenan en cache contenido estatido (como images, videos y
+archivos de estilo) en ubicaciones cercanas a los usuarios. Esto reduce la lantencia al entregar el contenido desde
+servidores mas cercanos en lugar de los servidores originales del sitio web.
+
+¿Qué es una CDN? Una red de entrega de contenido (CDN) es una red de servidores interconectados que acelera la carga de 
+las páginas web para las aplicaciones que tienen un uso intensivo de datos. CDN puede significar red de entrega de 
+contenido o red de distribución de contenido.
+
+
+# Redis
+
+Es un sistema de almacenamiento en cache de datos de codigo abierto y una base de
+datos en memoria.
+
+Redis == "Remote Dictionary Server"
+
+## Como funciona el cache de redis
+
+Redis es una base de datos en memoria, lo que significa que almacena datos en la RAM (memoria principal del sistema) 
+en lugar de en un disco. El término "caché" en Redis se refiere a la capacidad de almacenar en memoria datos 
+que se acceden con frecuencia, proporcionando así tiempos de acceso rápidos y reduciendo la necesidad de acceder
+a fuentes de datos más lentas, como una base de datos en disco.
+
+## Almacenamiento en memoria
+
+Almacena datos en memoria principal en lugar de un disco, lo que permite un acceso rápido y eficiente a los datos  
+Esto lo convierte en una excelente opción para casos de uso que requieren alta velocidad y baja latencia.
+
+## Estructuras de datos
+
+Redis admite una variedad de estructuras de datos, como cadenas, listas, conjuntos, mapas hash, conjuntos ordenados, 
+bitmaps, entre otros. Estas estructuras permiten a los desarrolladores realizar operaciones complejas de manera eficiente.
+
+## Persistencia opcional
+
+Aunque Redis es conocido como una base de datos en memoria, también admite persistencia opcional en disco. 
+Esto significa que los datos pueden guardarse en disco para su recuperación en caso de reinicio o fallo del sistema
+
+## Claves con tiempo de vida
+
+Puedes asignar un tiempo de vida a una clave, después del cual la clave y su valor asociado se eliminarán 
+automáticamente. Esto es útil para implementar estrategias de almacenamiento en caché con expiración automática.
+
+## Protocolo de red simple
+
+Redis utiliza un protocolo de red simple basado en texto, lo que facilita la implementación de 
+clientes en una variedad de lenguajes de programación.
+
+
 # Seguridad (Protocolos de autenticacion y autorizacion)
 
 ## OAuth (proporciona autorizacion)
