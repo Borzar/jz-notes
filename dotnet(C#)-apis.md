@@ -10,6 +10,20 @@ a la base de datos, esta informacion sera dada desde la memoria local.
 
 La gran ventaja del almacenamiento cache es que mejora el rendimiento al reducir la carga de procesamineto. 
 
+## Memory Cache (cache memoria)
+
+El almacenamiento en cache de memoria (a menudo denominado simplemente almacenamiento en cache) es una tecnica en la que 
+las aplicaciones informaticas almacenan temporalmente datos en la memoria principal de la computadora (es decir, memoria de 
+acceso aleatorio o RAM) para permitir recuperaciones rapidas de esos datos. La RAM que se utiliza para el almacenamiento
+temporal se conoce como cache.
+
+## Distributed Cache (cache distribuido)
+
+Un cache distribuido es una cache compartida por varios servidores de aplicaciones, que normalmente se mantiene como un servicio
+externo para los servidores de aplicaciones que acceden a ella.
+Una caché distribuida puede mejorar el rendimiento y la escalabilidad de una aplicación ASP.NET Core, especialmente cuando 
+la aplicación está alojada en un servicio en la nube o una granja de servidores.
+
 ## Tipos de caches
 
 ### Caché de bases de datos
@@ -99,7 +113,7 @@ lo que la hace mas rapida.
 ## CDN (Content Delivery Network)
 
 Las CDN son redes de servidores distribuidos globalmente que almacenan en cache contenido estatido (como images, videos y
-archivos de estilo) en ubicaciones cercanas a los usuarios. Esto reduce la lantencia al entregar el contenido desde
+archivos de estilo) en ubicaciones cercanas a los usuarios. Esto reduce la latencia al entregar el contenido desde
 servidores mas cercanos en lugar de los servidores originales del sitio web.
 
 ¿Qué es una CDN? Una red de entrega de contenido (CDN) es una red de servidores interconectados que acelera la carga de 
