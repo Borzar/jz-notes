@@ -1,3 +1,201 @@
+# PL/SQL
+
+## Block Structure
+
+PL/SQL es un lenguaje estructurado de bloques. 
+
+Es decir, las unidades básicas (procedimientos, funciones y bloques anónimos) 
+que componen un programa PL/SQL son bloques lógicos, que pueden contener cualquier número de subbloques anidados.
+
+Normalmente, cada bloque lógico corresponde a un problema o subproblema a resolver. Por lo tanto, PL/SQL soporta el 
+enfoque de divide y vencerás para la resolución de problemas llamado refinamiento paso a paso.
+
+El orden de las partes es lógico. Primero viene la parte declarativa, en la que se pueden declarar los artículos. 
+Una vez declarados, los elementos se pueden manipular en la parte ejecutable. Las excepciones planteadas durante la ejecución se pueden tratar en la parte de manejo de excepciones.
+
+```
+DECLARE
+    -- declarations
+BEGIN
+    -- statements 
+EXCEPTION
+    -- handlers
+END;
+```
+
+## Procedientos almacenados
+
+Un procedimiento almacenado es un conjunto de instrucciones SQL y otras construcciones PL/SQL que se almacenan en un sistema de administración de bases de datos relacionales (RDBMS). 
+
+Los procedimientos almacenados son programas compilados que pueden ejecutar sentencias de SQL. Un procedimiento almacenado típico contiene dos o más sentencias de SQL y proceso de manipulación o lógico en un programa. 
+
+Los procedimientos almacenados se pueden llamar desde otras consultas o desde otros procedimientos almacenados. Un procedimiento puede tomar argumentos de entrada y mostrar valores como resultados. 
+
+Los procedimientos almacenados también pueden recibir parámetros, lo que agrega cierta flexibilidad a la hora de escribir consultas SQL. 
+
+```
+PROCEDURE IngresarSolicitud(
+    -- parametros del procedimiento --
+) IS
+
+ -- declaracion de variables --
+ -- declaracion de constantes --
+ -- declaracion de cursores --
+
+BEGIN
+    -- logica
+END
+
+```
+
+## Cursor
+
+Un cursor es un conjunto de registros devuelto por una instrucción SQL.
+
+Un cursor esta conformado por un conjunto de registros devueltos por una instruccion SQL del tipo select
+
+Cursores implícitos. Este tipo de cursores se utiliza para operaciones SELECT INTO. Se usan cuando la consulta devuelve un único registro.
+
+Cursores explícitos. Son los cursores que son declarados y controlados por el programador. Se utilizan cuando la consulta devuelve un conjunto 
+de registros. Ocasionalmente también se utilizan en consultas que devuelven un único registro por razones de eficiencia. Son más rápidos.
+
+El procesamiento de consultas de varias filas es algo así como el procesamiento de archivos. Por ejemplo, un programa COBOL 
+abre un archivo, procesa registros y luego cierra el archivo. Del mismo modo, un programa PL/SQL abre un cursor, procesa las filas devueltas 
+por una consulta y luego cierra el cursor. Así como un puntero de archivo marca la posición actual en un archivo abierto, 
+un cursor marca la posición actual en un conjunto de resultados.
+
+Un cursor explícito "apunta" a la fila actual en el conjunto de resultados. Esto permite que su programa procese las filas una a la vez.
+
+Utilice las declaraciones OPEN, FETCH y CLOSE para controlar un cursor.
+
+La instrucción OPEN ejecuta la consulta asociada con el cursor, identifica el conjunto de resultados y coloca el cursor antes de la primera fila.
+
+La instrucción FETCH recupera la fila actual y hace avanzar el cursor a la siguiente fila.
+
+Cuando se ha procesado la última fila, la instrucción CLOSE desactiva el cursor
+
+PARA PROCESAR INSTRUCCIONES SELECT QUE DEVUELVAN MÁS DE UNA FILA, SON NECESARIOS CURSORES
+EXPLICITOS COMBINADOS CON UN ESTRUCTURA DE BLOQUE.
+
+## Cursor FOR Loops
+
+En la mayoría de las situaciones que requieren un cursor explícito, puede simplificar la codificación utilizando un bucle FOR de cursor 
+en lugar de las instrucciones OPEN, FETCH y CLOSE.
+
+Un bucle FOR de cursor declara implícitamente su índice de bucle como un registro que representa una fila obtenida de la base de datos.
+
+```
+DECLARE
+   CURSOR c1 IS
+      SELECT ename, sal, hiredate, deptno FROM emp;
+   ...
+BEGIN
+   FOR emp_rec IN c1 LOOP
+      ...
+      salary_total :=  salary_total + emp_rec.sal;
+   END LOOP;
+```
+
+## Cursor Variables
+
+Al igual que un cursor, una variable de cursor apunta a la fila actual en el conjunto de resultados de una consulta de varias filas.
+
+## %TYPE
+
+El atributo %TYPE proporciona el tipo de datos de una variable o columna de base de datos.
+
+Esto es particularmente útil al declarar variables que contendrán valores de la base de datos.
+
+Por ejemplo, asume que hay una columna llamada title  en la tabla books.
+
+Para declarar una variable denominada my_title que tenga  el mismo tipo de dato que de la columna title de la tabla books, utilice la notación de puntos y el atributo %TYPE, 
+de la siguiente manera: 
+
+my_title books.title%TYPE;
+
+## %ROWTYPE
+
+%ROWTYPE es un atributo que se utiliza en la declaración de variables o registros para asociarlos automáticamente con la estructura de una fila en una tabla o vista. 
+Este atributo es especialmente útil cuando trabajas con cursores o instrucciones SQL que devuelven conjuntos de filas.
+
+Al usar %ROWTYPE, puedes declarar una variable o registro que tenga la misma estructura que una fila específica de una tabla o vista. Esto evita tener que declarar 
+manualmente cada columna y su tipo de datos, lo que facilita la escritura de código y reduce la posibilidad de errores.
+
+```
+DECLARE
+  -- Declarar un registro que tiene la misma estructura que una fila en la tabla employees
+  v_employee_record employees%ROWTYPE;
+
+BEGIN
+  -- Asignar valores al registro (esto podría ser a través de un cursor, por ejemplo)
+  v_employee_record.employee_id := 1;
+  v_employee_record.first_name := 'John';
+  v_employee_record.last_name := 'Doe';
+  v_employee_record.salary := 50000;
+
+  -- Puedes utilizar el registro en operaciones posteriores, como la inserción o actualización de datos
+  -- O puedes imprimir sus valores utilizando DBMS_OUTPUT.PUT_LINE
+  DBMS_OUTPUT.PUT_LINE('Employee ID: ' || v_employee_record.employee_id);
+  DBMS_OUTPUT.PUT_LINE('Name: ' || v_employee_record.first_name || ' ' || v_employee_record.last_name);
+  DBMS_OUTPUT.PUT_LINE('Salary: ' || v_employee_record.salary);
+END;
+/
+```
+
+En este ejemplo, v_employee_record tiene la misma estructura que una fila de la tabla employees debido al uso de %ROWTYPE. 
+Esto facilita la manipulación de datos y evita la necesidad de especificar manualmente cada columna y su tipo de datos.
+
+
+## Package
+
+Le permite agrupar tipos, variables, cursores y subprogramas relacionados lógicamente en un paquete. 
+Cada paquete es fácil de entender y las interfaces entre paquetes son simples, claras y bien definidas. Esto ayuda al desarrollo de aplicaciones.
+
+Los paquetes suelen tener dos partes: una especificación y una cuerpo(Body). 
+
+La especificación es la interfaz de sus aplicaciones; declara los tipos, constantes, variables, excepciones, cursores, procedimientos y subprogramas disponibles 
+para su uso.
+
+El cuerpo define cursores y subprogramas(procedimientos) y así implementa la especificación.
+
+```
+CREATE PACKAGE emp_actions AS  -- package specification
+   PROCEDURE hire_employee (empno NUMBER, ename CHAR, ...);
+   PROCEDURE fire_employee (emp_id NUMBER);
+END emp_actions;
+
+CREATE PACKAGE BODY emp_actions AS  -- package body
+   PROCEDURE hire_employee (empno NUMBER, ename CHAR, ...) IS
+   BEGIN
+      INSERT INTO emp VALUES (empno, ename, ...);
+   END hire_employee;
+   PROCEDURE fire_employee (emp_id NUMBER) IS
+   BEGIN
+      DELETE FROM emp WHERE empno = emp_id;
+   END fire_employee;
+END emp_actions;
+```
+
+Sólo las declaraciones en la especificación del paquete son visibles y accesibles para las aplicaciones. 
+Los detalles de implementación en el cuerpo del paquete están ocultos y son inaccesibles.
+
+## Triggers
+
+Un desencadenador de base de datos es un subprograma almacenado asociado con una tabla, vista o evento de base de datos. 
+Por ejemplo, puede hacer que Oracle active un disparador automáticamente antes o después de que una instrucción INSERT, UPDATE o DELETE 
+afecte a una tabla. Uno de los muchos usos de los activadores de bases de datos es auditar las modificaciones de datos. 
+
+Por ejemplo, el siguiente disparador a nivel de tabla se activa cada vez que se actualizan los salarios en la tabla emp:
+
+```
+CREATE TRIGGER audit_sal
+   AFTER UPDATE OF sal ON emp
+   FOR EACH ROW
+BEGIN
+   INSERT INTO emp_audit VALUES ...
+END;
+```
+
 # DATA DEFINITION LANGUAGE (DDL)
 
 ### CREATE DATABASE 
