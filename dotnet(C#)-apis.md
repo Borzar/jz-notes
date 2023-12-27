@@ -247,6 +247,7 @@ Flujo:
 5. El cliente almancena ese JWT localmente (localstorage, cookie, variable local del browser).
 
 6. Teniendo ese token almacenado, puede enviar ese token como referencia al identity core para acceso  a otros recursos.
+
 7. Ejemplo: Si queremos obtener una lista de tareas, lo que tendria que hacer el Cliente (React) es adjuntar en la request el token -> Idendity
 valida que ese token sea el correcto  y le da acceso a todo el servicio para obtener la data.
 

@@ -25,6 +25,15 @@ END;
 
 ## Procedientos almacenados
 
+
+
+Los procedimientos almacenados son solo una parte de las capacidades de PL/SQL, y la sintaxis de PL/SQL en su conjunto es más amplia para abordar una variedad de situaciones y requisitos de programación en la base de datos Oracle
+
+La sintaxis de PL/SQL y los procedimientos almacenados puede variar debido a que PL/SQL es un lenguaje de programación procedural completo, mientras que los procedimientos almacenados 
+son solo un tipo específico de construcción dentro de PL/SQL. PL/SQL proporciona un conjunto amplio de características y estructuras que van más allá de los procedimientos almacenados.
+
+Un procedimiento almacenado es simplemente un tipo de objeto PL/SQL que encapsula una serie de sentencias SQL y lógica de programación.
+
 Un procedimiento almacenado es un conjunto de instrucciones SQL y otras construcciones PL/SQL que se almacenan en un sistema de administración de bases de datos relacionales (RDBMS). 
 
 Los procedimientos almacenados son programas compilados que pueden ejecutar sentencias de SQL. Un procedimiento almacenado típico contiene dos o más sentencias de SQL y proceso de manipulación o lógico en un programa. 
@@ -36,7 +45,7 @@ Los procedimientos almacenados también pueden recibir parámetros, lo que agreg
 ```
 PROCEDURE IngresarSolicitud(
     -- parametros del procedimiento --
-) IS
+) IS/AS
 
  -- declaracion de variables --
  -- declaracion de constantes --
