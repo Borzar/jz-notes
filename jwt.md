@@ -2,12 +2,25 @@
 
 ## Que es un JWT?
 
-Es una cadena, un conjunto de caracteres, que contiene un poco de información. Para las sesiones de usuario puede incluir el username 
-y el tiempo de expiración (fecha y hora). Pero en realidad puede representar lo que sea, incluso un identificador de sesión o el perfil 
+### Resumen
+
+Es una cadena, un conjunto de caracteres, que contiene un poco de información del usuario. Para las sesiones de usuario puede incluir el username 
+y el tiempo de expiración (fecha y hora), permisos de usuario, nombre de usuario. Pero en realidad puede representar lo que sea, incluso un identificador de sesión o el perfil 
 completo del usuario que ha iniciado sesión. Aunque, por favor, esto debe evitarse.
 
-Tiene una firma segura que evita que agentes externos malintencionados generen tokens falsos. Se necesita acceder a la clave privada del servidor 
-para firmarlos; y gracias a esta firma se puede verificar que no se hayan modificado (desde que el servidor los firmó).
+Ademas estos token estan firmados de una forma simetrica o asimetrica dependiendo de que tecnologia hemos utilizado para crear el token.
+
+Con esta firma evitamos que nuestro token sea modificado o falsificado y con esta firma nos aseguramos que la informacion que nos ha llegado es valida.
+
+Por ejemplo cuando firmamos el token, lo que esta sucediendo es que estamos encriptando la informacion previa por lo tanto evitamos que la informacion del token haya sido cambiada.
+
+La encriptacion funciona con una palabra clave. 
+
+Para verificar su validez, es necesario conocer la palabra secreta para descifrar esta informacion y asegurarnos que es valida o invalida.
+Esto se realiza en el servicio que hayamos aplicado seguridad.
+
+
+## Caracteristicas 
 
 Se envían en cada petición (tal como sucede con las cookies). Comúnmente se envían a través del Authorization header de las peticiones HTTP, 
 pero curiosamente también se pueden usar cookies para transportarlos.
@@ -19,7 +32,7 @@ A fin de transportar de manera segura el token, lo adecuado es enviarlo a travé
 
 La autenticación basada en tokens carece de estado (es stateless).
 
-El servidor ya no guarda información de qué usuarios están conectados o qué tokens se han emitido. Esto es así porque cada solicitud 
+El servidor ya no guarda información de qué usuarios que están conectados o qué tokens se han emitido. Esto es así porque cada solicitud 
 realizada al servidor va acompañada de un token, y el servidor verifica la autenticidad de la solicitud basándose únicamente en el token.
 
 Como ya comentamos antes, JWT define un formato para los tokens. Pero JWT no nos ata a ningún mecanismo de persistencia de datos en el lado del cliente y tampoco 
@@ -28,7 +41,7 @@ a ninguna regla de cómo se debe transportar el token.
 Los tokens se envían generalmente como un Authorization header, con el valor Bearer {JWT}; pero pueden enviarse también en el cuerpo de una petición POST o 
 incluso como un query parameter.
 
-Veamos cómo funciona:
+## Veamos cómo funciona:
 
  1. Un usuario ingresa sus credenciales (datos que le permiten iniciar sesión)
 
@@ -51,15 +64,16 @@ validez (así como también información puntual del usuario que ha iniciado ses
 
 De esta forma, el único trabajo del servidor es: firmar tokens ante un inicio de sesión exitoso, y verificar que los tokens entrantes sean válidos.
 
-## Los Tokens son firmados (estructura)
+## Los Tokens son firmados (Informacion mas tecnica y estructura)
 
 JSON Web Token (JWT) es un estándar abierto (RFC 7519) que define una forma compacta y autónoma de transmitir información de forma segura entre
 partes como un objeto JSON. Esta información puede ser verificada y confiable porque está firmada digitalmente.
 
-Los JWT se pueden firmar mediante un sercreto (con el algoritmo HMAC) o un par de claves publica/privadas mediante RSA o ECDSA.
+Los JWT se pueden firmar mediante un secreto (con el algoritmo HMAC) o un par de claves publica/privadas mediante RSA o ECDSA.
 
 La firma también certifica que solo el portador o el creador del token que posee la clave privada puede descifrar el token, por lo tanto si queremos utilizar
-dicho token, debemos conocer la palabra sercreta o la firma del servicio que genero dicho token, para que token queden valido. De lo contrario quedara invalido.
+dicho token, debemos conocer la palabra secreta o la firma del servicio que genero dicho token para que token queden valido, de lo contrario quedara invalido.
+
 Esto es con el fin de verificar que el remitente del JWT es quien dice ser.
 
 La firma tambien se utiliza para verificar que el mensaje no se modificó en el camino y, en el caso de tokens firmados con una clave privada, 
@@ -67,7 +81,7 @@ también puede verificar que el remitente del JWT es quien dice ser.
 
 Un JSON Web Token se compone de 3 partes: header, payload, y signature.
 
-### header 
+### Header 
 
 El encabezado normalmente consta de dos partes: el tipo de token, que es JWT, y el algoritmo de firma que se utiliza, como HMAC SHA256 o RSA.
 
@@ -82,7 +96,7 @@ Ejemplo:
 
 Luego, este JSON es codificado en Base64Url para formar la primera parte del JWT
 
-### payload
+### Payload
 
 La segunda parte del token es el payload, que contiene los Claims. Los Claims son declaraciones 
 sobre una entidad (normalmente, el usuario) y datos adicionales. Hay tres tipos de Claims: 
@@ -121,7 +135,7 @@ Ejemplo de Claims:
 
 Luego, el payload se codifica en Base64Url para formar la segunda parte del token web JSON.
 
-### signature
+### Signature
 
 Para crear la parte de la firma, debe tomar el encabezado codificado, la carga útil codificada, un secreto, el algoritmo especificado en el encabezado y firmarlo.
 
@@ -136,7 +150,6 @@ HMACSHA256(
 
 La firma se utiliza para verificar que el mensaje no se modificó en el camino y, en el caso de tokens firmados con una 
 clave privada, también puede verificar que el remitente del JWT es quien dice ser.
-
 
 ## Formato del JWT
 
@@ -180,7 +193,6 @@ Su objetivo principal es representar datos binarios de una manera segura para su
 REVERSIBILIDAD: La codificación es reversible, lo que significa que puedes recuperar los datos originales si conoces el esquema de codificación utilizado. 
 
 No hay seguridad ni ocultamiento de datos involucrados en la codificación.
-
 
 ## Cross Domain y CORS
 
