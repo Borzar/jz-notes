@@ -2,18 +2,27 @@
 
 ## HTTP = "Hypertext transfer protocol"
 
-Es un protocolo que permite realizar una
-peticion  de datos y recursos como pueden ser documentos HTML.
-Es la base de cualquier intercambio de datos de la web
+Hypertext Transfer Protocol (HTTP) (o Protocolo de Transferencia de Hipertexto en español) 
+es un protocolo de comunicacion utilizado para la transmisión de datos en la World Wide Web (WWWW) 
 
-Es un protocolo de estructura cliente-servidor, esto quiere decir que 
-una petición de datos es iniciada por el elemento que recibira los datos.
-(cliente), normalmente el navegaro web.
+Fue diseñado para la comunicación entre los navegadores y servidores web.
 
-Asi que una pagina web compelta resulta de la unión de distintos
-sub-documentos recibidos, como, por ejemplo: un documento que especifique el 
-estilo de maquetación de la página web(web), el texto, las imágines, videos,
-scripts, etc
+HTTP Sigue un modelo  de solicitud-respuesta, donde el cliente, generalmente un navegador web,
+envia una solicidud a una solicitud a un servidor para recuperar recursos (como paginas web,
+imagenes, videos, etc) y el servidor responde con los recursos solicitados.
+
+HTTP utiliza diferentes métodos de solicitud, como GET, POST, PUT, DELETE, entre otros.
+
+Las solicitudes y respuestas HTTP consisten en un encabezado y opcionalmente un cuerpo.
+
+### Encabezado
+
+Contiene informacion sobre la solicitud o la respuesta, con el tipo de contenido, la longitud del cuerpo,
+la codificacion utilizada, autenticacion, entre otros.
+
+### Cuerpo
+
+Contiene los datos reales que se estan enviando, como el HTML de una pagina web, una imagen, etc.
 
 Se transmite sobre el protocolo TCP, o el protocolo encriptado TLS.
 
@@ -111,7 +120,6 @@ una sesión especifica mediante el uso de HTTTP cookies.
 su verdadera direccion IP a otros.
 
 
-
 ## Peticiones
 
 ![peticion http imagen](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview/http_request.png)
@@ -137,8 +145,6 @@ Una respuesta HTTP, esta formada por los siguientes campos:
 - Un mensaje de estado, una breve descriptción del código de estado.
 - Cabeceras HTTP, como de las peticiones.
 - Opcionalmente, el recurso qeu se ha pedido.
-
-
 
 # Request and Responses 
 
