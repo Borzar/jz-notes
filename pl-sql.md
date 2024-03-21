@@ -367,31 +367,30 @@ Se utiliza para combinar multiples condiciones (para una o mas columnas)
 ```
 SELECT * FROM tabla
 WHERE condicion1 OR condicion2;
-
-# Esta consulta seleccionaría registros que cumplan con condicion1 o condicion2 (o ambas)
 ```
+*Esta consulta seleccionaría registros que cumplan con condicion1 o condicion2 (o ambas)*
 
 ## IN 
 La cláusula IN se utiliza para especificar una lista de valores posibles para UNA columna particular.
 
-Permite seleccionar registros donde el valor de esa columna coincida con cualquiera de los valores de la lista.
-```
+Permite seleccionar registros donde el valor de esa columna coincida con cualquiera de los valores indicados.
 
+```
 SELECT * FROM tabla
 WHERE columna IN (valor1, valor2, valor3);
-
-Si valor1 está presente en la columna, pero valor2 y valor3 no lo están, la consulta devolverá todos los registros 
+```
+*Si valor1 está presente en la columna, pero valor2 y valor3 no lo están, la consulta devolverá todos los registros 
 donde la columna coincida con valor1 y los registros donde coincida con cualquier otro valor que esté en la lista de IN. 
-Los valores ausentes simplemente se ignorarán.
+Los valores ausentes simplemente se ignorarán.*
 
+```
 SELECT EmpId, FirstName, LastName, Salary
 FROM Employee
 WHERE EmpId IN (1, 3, 5, 6)
-
-La query anterior retornara los registros donde EmpId es 1 o 3 o 5 o 6.
 ```
+*La query anterior retornara los registros donde EmpId es 1 o 3 o 5 o 6.*
 
-Permite especificar multimple valores para un columna en una clausula WHERE.
+Permite especificar multiples valores para un columna en una clausula WHERE.
 
 Es un atajo para multiples condiciones OR (solo si estas consultando para una misma columna).
 
