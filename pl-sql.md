@@ -368,7 +368,7 @@ Se utiliza para combinar multiples condiciones (para una o mas columnas)
 SELECT * FROM tabla
 WHERE condicion1 OR condicion2;
 
-Esta consulta seleccionaría registros que cumplan con condicion1 o condicion2 (o ambas)
+# Esta consulta seleccionaría registros que cumplan con condicion1 o condicion2 (o ambas)
 ```
 
 ## IN 
