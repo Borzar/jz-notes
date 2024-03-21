@@ -391,7 +391,6 @@ WHERE EmpId IN (1, 3, 5, 6)
 *La query anterior retornara los registros donde EmpId es 1 o 3 o 5 o 6.*
 
 Permite especificar multiples valores para un columna en una clausula WHERE.
-
 Es un atajo para multiples condiciones OR (solo si estas consultando para una misma columna).
 
 También puedes usar IN con una subconsulta en la cláusula WHERE. Con una subconsulta puede devolver 
