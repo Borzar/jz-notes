@@ -699,7 +699,7 @@ Las colecciones como las Listas, pueden cambiar de tamaño dinamicamente.
 
 ## Interfaces
 
-EnIEnumerable, ICollection e IList son interfaces en .NET, las cuales son utilizadas frecuentemente. IEnumerable 
+En IEnumerable, ICollection e IList son interfaces en .NET, las cuales son utilizadas frecuentemente. IEnumerable 
 es la base de las interfaces ICollection e IList (y muchas otras).
 
 Se encuentran en el namespace System.Colecctions 
@@ -710,8 +710,14 @@ IEnumerable > IColecction > IList
 
 ### IEnumerable
 
-Es una interfaz que permite ejecutar consultas LINQ.
-Es una interfaz que se utiliza para representar una secuencia de elementos que se pueden iterar.
+Es una interfaz que se utiliza para representar una secuencia de elementos que se pueden iterar, pero no proporciona ningún método para modificar la secuencia. 
+
+Utilice IEnumerable cuando necesite iterar sobre una secuencia de elementos, pero no necesite modificar la secuencia.
+
+Algunos escenarios en los que se puede utilizar IEnumerable:
+
+    - Es una interfaz que permite ejecutar consultas LINQ.
+    - Cuando desea iterar sobre una colección de objetos usando un bucle foreach.
 
 Por ejemplo el metodo ToList() esta disponible  en el contexto de las colecciones que implementan la interfaz IEnumerabl<T>.
 
@@ -732,6 +738,7 @@ como arrays, listas, conjuntos y otros tipos de colecciones.
 `PERMITE` recorrer mediante itereacion `FOREACH` cada uno de los elementos y ejecutar filtros de busqueda con la clausula `WHERE`.
 
 `NO PERMITE` operaciones de edicion sobre los elementos (agregar, eliminar, actualizar, etc)
+
 `NO PERMITE` recuentos de dichos elementos, si quieres saber la cantidad total debes obtenerla manualmente mediante un foreach.
 
 `CUANDO USAR` Lo unico que quieres iterar sobre los elementos de una coleccion. Solo necesita acceso de solo lectura a esa coleccion.
@@ -759,7 +766,8 @@ que se almacenan los datos es importante. Debera usarse cuando se quiera tener u
 
 ### IList vs List
 
-Para entender la diferencia primero tenemos que entender la diferencia entre clases y interfaces.
+Para entender la diferencia primero tenemos que entender la diferencia entre clases y interfaces. Por ejemplo, podrías tener una interfaz IReproducible que define un método Reproducir(), y cualquier clase que implemente esta interfaz debe proporcionar una implementación para el método Reproducir().
+
 IList es una interface y List es una clase en concreta que utiliza IList.
 
 Siempre tenemos que codificar en terminos de interfaces, ya que proporciona un codigo mas generico. 
@@ -842,8 +850,8 @@ Es un puntero de una funcion
 Es un delegado que devuelve un booleano
 
 ## Expresiones lambda
-Funciones anonimas.
-Expresiones similar a un callback de JS.
+Funciones anonimas y expresiones similar a un callback de JS.
+
 Es una funcion que se pasa como argumento a otra funcion y se ejecuta cuando se cumple una condición
 especifica (generalmente ejecuta después de que la función principal ha completado su tarea). 
 Por ejemplo la funcion seTimeout recibe un callback que se ejecutara segun los el tiempo
