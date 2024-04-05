@@ -768,16 +768,21 @@ que se almacenan los datos es importante. Debera usarse cuando se quiera tener u
 
 Para entender la diferencia primero tenemos que entender la diferencia entre clases y interfaces. Por ejemplo, podrías tener una interfaz IReproducible que define un método Reproducir(), y cualquier clase que implemente esta interfaz debe proporcionar una implementación para el método Reproducir().
 
+Ejemplo IList<IngresoMandatarioInputDTO> MiIList = new List<IngresoMandatarioInputDTO>();
+
+Esto apunta a lista misma por lo tanto tendremos la implementacion de los metodos de la clase List y no debemos realizar la implementacion propia  de los metodos definidos en la interface IList.
+
 IList es una interface y List es una clase en concreta que utiliza IList.
 
 Siempre tenemos que codificar en terminos de interfaces, ya que proporciona un codigo mas generico. 
 Solo debemos tener presente y asegurarmos que clase extienda de IList. 
-
 Para que cada vez que nuestro tipo o clase cambie en el futuro podamos
 adaptarnos a cualquier tipo que implemente la interfaz mencionada.
 
-Sin embargo si utilizamos las clase List tenemos a disposicion muchos metodos que estan presenten especificamente en la clase List. 
-Por ejemplo el metodo Sort().
+Sin embargo si utilizamos las clase List tenemos a disposicion muchos metodos que estan presentes especificamente en la clase List. 
+Por ejemplo si MiIList es del tipo IList<IngresoMandatarioInputDTO>, no tendrás el método Sort() disponible directamente, ya que Sort() es un método específico de la clase List<T> y no está definido en la interfaz IList<T>.
+
+Ejemplos:
 
 ```
     List<string> myList = new List<string>();
