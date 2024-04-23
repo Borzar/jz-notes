@@ -465,9 +465,20 @@ FROM TRIANGLES
 
 ## TRANSACTIONS
 
-Una transcaccion en SQL es una unidad de trabajo (unit of work) que se realiza en una base de datos.
-Una transaccion es un conjunto de operaciones (sentencias sql) que van a ser tratadas como una unidad de trabajo.
-Estas transacciones deben cumpllir 4 propiedades fundamentales conocidas como ACID(atomicidad, coherencia, aislamiento, durabilidad)
+Una transaccion es un conjunto de operaciones (sentencias SQL) que van a ser tratadas como una unidad de trabajo (unit of work). 
+
+Una transaccion se forma cuando hay una secuencia de una o mas sentencias SQL que se agrupan como una unidad logica de trabajo, y generalmente 
+implica operaciones que modifican los datos.
+
+Se consideran transacciones en SQL las operaciones que involucran cambios en la base de datos como INSERT, UPDATE, DELETE 
+incluso operaciones de control de transacciones como BEGIN TRANSACTION, COMMIT y ROLLBACK. 
+
+Una sentencia SELECT por si sola no se considera una transaccion en SQL. Una sentecia SELECT es una operacion de lectura que simplemente recupera datos de una base de datos sin modificarlos. 
+Las transacciones en SQL generalmente involucran operaciones que modifican los datos como INSERT, UPDATE, DELETE.
+
+**Sin embargo, es importante tener en cuenta que una sentencia SELECT también puede formar parte de una transacción más grande que incluya operaciones de modificación de datos. En este caso, la sentencia SELECT contribuiría a la transacción más grande, pero por sí sola no constituye una transacción completa.**
+
+Estas transacciones deben cumpllir 4 propiedades fundamentales conocidas como ACID (atomicidad, coherencia, aislamiento, durabilidad)
 
 Si una transaccion tiene exito, todas las modificaciones de los datos realizadas durante la transaccion se confirman y se 
 convierten en una parte pemanente de la base de datos. Si una transaccion encuentra erroeres, se borran todas las modificaciones
