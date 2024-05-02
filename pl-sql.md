@@ -324,7 +324,15 @@ no están siendo agregadas (mediante funciones como SUM, COUNT, AVG, etc.) deben
 Esto garantiza que haya una única fila representativa para cada combinación de valores agrupados.
 
 Agrupa filas que tienen los mismos valores en filas resumen. Como ejemplo seria "encontrar el numero de clientes de cada pais"
-Se usa a menudo con funciones count(), max(), min(), sum(), etc. Para agrupar el conjunto de resultados en un columna
+Se usa a menudo con funciones count(), max(), min(), sum(), etc. Para agrupar el conjunto de resultados en un columna.
+
+SELECT cod_cliente, SUM(cantidad)
+FROM ventas
+GROUP BY cod_cliente;
+
+En SQL, cuando utilizas una función de agregación como SUM(), la columna sobre la que se aplica la función de agregación (en este caso, cantidad) 
+no necesita estar incluida en la cláusula GROUP BY. Esto se debe a que la función de agregación opera sobre el conjunto de filas agrupadas, 
+por lo que el resultado ya está agregado y no se necesita agrupar nuevamente por esa columna.
 
 ```
 SELECT column_name(s)
@@ -336,6 +344,10 @@ ORDER BY column_name(s);
 
 ### HAVING 
 La clusula HAVING se agrego a SQL porque la clusula WHERE no puede ser usada con funciones sql.
+
+Filtra los grupos de filas basados en una condición. La cláusula HAVING se aplica después de la agregación (es decir, después de que se hayan agrupado los datos), 
+lo que significa que puede utilizar funciones de agregación en la condición.
+
 Actua sobre las funciones de aggragate (funciones agregadas en sql como max(), mix(), etc)).
 
 ```
