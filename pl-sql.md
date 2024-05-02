@@ -316,6 +316,13 @@ Operator	Description
                 Se utiliza para combinar multiples condiciones (para una o mas columnas)
 
 ### GROUP BY
+Cuando usas la cláusula GROUP BY en SQL, estás agrupando filas basadas en los valores de una o más columnas. 
+Por ejemplo, si agrupas por cod_poder, estás diciendo que quieres ver solo una fila por cada valor único de cod_poder.
+
+Por eso, para evitar ambigüedades, en SQL se requiere que si estás utilizando GROUP BY, todas las columnas seleccionadas en tu consulta que 
+no están siendo agregadas (mediante funciones como SUM, COUNT, AVG, etc.) deben estar presentes en la cláusula GROUP BY. 
+Esto garantiza que haya una única fila representativa para cada combinación de valores agrupados.
+
 Agrupa filas que tienen los mismos valores en filas resumen. Como ejemplo seria "encontrar el numero de clientes de cada pais"
 Se usa a menudo con funciones count(), max(), min(), sum(), etc. Para agrupar el conjunto de resultados en un columna
 
