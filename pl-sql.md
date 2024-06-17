@@ -124,6 +124,20 @@ my_title books.title%TYPE;
 
 ## %ROWTYPE
 
+ROWTYPE es lo mismo cuando instancias una clase. Con ROWTYPE se instancia una tabla lo que permite acceder a los valores de una columna en especifica de la fila capturada.
+
+Es comunmente utilizada con select * into [nombre variable] from [nombre tabla] where [condicion] donde se captura en la variable la fila devuelta por la consulta, ya en adelante podras
+acceder a los valores de la columna especificada, ejemplo: 
+
+```
+-- declaracion.
+v_employee_record employees%ROWTYPE;  
+
+-- Capturar valores del registro.
+v_employee_record.employee_id
+v_employee_record.first_name
+v_employee_record.last_name
+```
 %ROWTYPE es un atributo que se utiliza en la declaración de variables o registros para asociarlos automáticamente con la estructura de una fila en una tabla o vista. 
 Este atributo es especialmente útil cuando trabajas con cursores o instrucciones SQL que devuelven conjuntos de filas.
 
