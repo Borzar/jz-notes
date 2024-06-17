@@ -124,7 +124,36 @@ my_title books.title%TYPE;
 
 ## %ROWTYPE
 
+Es un atributo que se utiliza para declarar una variable de tipo registro (record) con una estructura que coincide con una fila de una tabla o una vista en la base de datos.
+
 ROWTYPE es lo mismo cuando instancias una clase. Con ROWTYPE se instancia una tabla lo que permite acceder a los valores de una columna en especifica de la fila capturada.
+
+### Formas de uso
+
+1. Asignar valores mediante SELECT INTO.
+
+Cuando necesitas capturar valores desde la base de datos, puedes usar SELECT INTO para llenar el registro completo de una sola vez:
+
+```
+DECLARE
+  -- Declarar un registro que tiene la misma estructura que una fila en la tabla employees
+  v_employee_record employees%ROWTYPE;
+BEGIN
+  -- Capturar valores desde la tabla employees
+  SELECT employee_id, first_name, last_name, salary
+  INTO v_employee_record
+  FROM employees
+  WHERE employee_id = 1;
+
+-- Capturar valores del registro.
+v_employee_record.employee_id
+v_employee_record.first_name
+v_employee_record.last_name
+
+  -- Ahora puedes trabajar con el registro lleno con los valores de la base de datos
+  DBMS_OUTPUT.PUT_LINE('Employee Name: ' || v_employee_record.first_name || ' ' || v_employee_record.last_name);
+END;
+```
 
 Es comunmente utilizada con select * into [nombre variable] from [nombre tabla] where [condicion] donde se captura en la variable la fila devuelta por la consulta, ya en adelante podras
 acceder a los valores de la columna especificada, ejemplo: 
@@ -138,11 +167,20 @@ v_employee_record.employee_id
 v_employee_record.first_name
 v_employee_record.last_name
 ```
+
+2. Asignar valores directamente.
+
 %ROWTYPE es un atributo que se utiliza en la declaración de variables o registros para asociarlos automáticamente con la estructura de una fila en una tabla o vista. 
 Este atributo es especialmente útil cuando trabajas con cursores o instrucciones SQL que devuelven conjuntos de filas.
 
 Al usar %ROWTYPE, puedes declarar una variable o registro que tenga la misma estructura que una fila específica de una tabla o vista. Esto evita tener que declarar 
 manualmente cada columna y su tipo de datos, lo que facilita la escritura de código y reduce la posibilidad de errores.
+
+Puedes asignar valores directamente a cada campo del registro (ROWTYPE tipo de dato record = registro). No necesitas utilizar SELECT INTO para asignar valores. Aquí hay un ejemplo completo:
+
+
+
+
 
 ```
 DECLARE
@@ -157,10 +195,10 @@ BEGIN
   v_employee_record.salary := 50000;
 
   -- Puedes utilizar el registro en operaciones posteriores, como la inserción o actualización de datos
-  -- O puedes imprimir sus valores utilizando DBMS_OUTPUT.PUT_LINE
-  DBMS_OUTPUT.PUT_LINE('Employee ID: ' || v_employee_record.employee_id);
-  DBMS_OUTPUT.PUT_LINE('Name: ' || v_employee_record.first_name || ' ' || v_employee_record.last_name);
-  DBMS_OUTPUT.PUT_LINE('Salary: ' || v_employee_record.salary);
+  -- Puedes realizar más operaciones aquí, como insertar este registro en otra tabla, etc.
+  -- Por ejemplo:
+  INSERT INTO employees (employee_id, first_name, last_name, salary)
+  VALUES (v_employee_record.employee_id, v_employee_record.first_name, v_employee_record.last_name, v_employee_record.salary);
 END;
 /
 ```
