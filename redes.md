@@ -1,3 +1,88 @@
+# Protocolos (En construccion)
+
+# HTTP
+
+HTTP (HyperText Transfer Protocol) es un protocolo de comunicación utilizado para transferir datos a través de la World Wide Web (web).
+
+HTTP define cómo los mensajes se formatean y transmiten, y cómo los navegadores web y servidores web deben responder a diversas solicitudes.
+
+Define cómo se formulan (estructuran) las solicitudes y respuestas.
+
+## Características Principales
+
+Es un Protocolo de Capa de Aplicación:
+
+HTTP opera en la capa de aplicación del modelo OSI (Open Systems Interconnection) y del modelo TCP/IP.
+
+## Métodos HTTP:
+
+GET: Solicita la representación de un recurso específico.
+
+POST: Envía datos al servidor para crear o actualizar un recurso.
+
+PUT: Actualiza un recurso existente o crea uno nuevo si no existe.
+
+DELETE: Elimina un recurso especificado.
+
+HEAD: Similar a GET, pero solo recupera los encabezados de la respuesta.
+
+OPTIONS: Describe las opciones de comunicación disponibles para el recurso de destino.
+
+PATCH: Aplica modificaciones parciales a un recurso
+
+## Encabezados HTTP:
+
+Proporcionan metadatos sobre la solicitud o respuesta. Ejemplos: Content-Type, Content-Length, User-Agent, Accept, etc.
+
+## Flujo: 
+- Un cliente (navegador web, Postman, etc.) envía una solicitud HTTP a un servidor web.
+- El servidor procesa la solicitud: El servidor recibe la solicitud, la procesa y busca el recurso solicitado.
+- El servidor responde con un mensaje HTTP que incluye un código de estado (por ejemplo, 200 OK), encabezados HTTP y el cuerpo del mensaje (como el HTML de una página web).
+- Cliente recibe la respuesta y procesa los datos según corresponda (por ejemplo, renderizando una página web).
+
+# TCP/IP  (Transmission Control Protocol/Internet Protocol)
+
+Es un conjunto de protocolos de comunicación que <b><i>permite que un equipo pueda comunicarse con otro dentro de una red y define cómo los datos se transmiten a través de una red</i></b>. Está compuesto por cuatro capas :  
+
+## Capa de Acceso a la Red (o Capa de Enlace):
+
+Función: Maneja la transmisión de datos en la red física. Incluye tecnologías como Ethernet y Wi-Fi.
+Ejemplo: La tarjeta de red de tu computadora enviando bits a través de un cable Ethernet.
+
+## Capa de Internet:
+
+Función: Maneja el direccionamiento y el enrutamiento de los datos a través de la red global (Internet).
+El protocolo principal en esta capa es el IP (Internet Protocol). Este protocolo lleva los datos a otras máquinas de la red.
+Ejemplo: Un paquete IP que contiene la dirección IP de origen y destino
+
+## Capa de Transporte:
+
+Función: Asegura que los datos se transmitan de manera confiable entre sistemas finales.
+Protocolos principales: TCP (Transmission Control Protocol) y UDP (User Datagram Protocol).
+Ejemplo: TCP divide los datos en segmentos, los envía, y asegura que lleguen en orden y sin errores.
+
+## Capa de Aplicación:
+
+Es la capa de aplicación que directamente interactúa con los programas que el usuario utiliza, como navegadores web, clientes de correo, y aplicaciones de transferencia de archivos.
+
+Es la capa más alta y donde se ejecutan los protocolos que interactúan con el software de la aplicación.
+Ejemplo: HTTP para navegar por la web, SMTP para enviar correos electrónicos, FTP para transferir archivos.
+
+## Ejemplo Práctico
+
+1. Navegador Web (Aplicación):
+Tú, como usuario, escribes una URL en tu navegador web.
+
+2. HTTP (Protocolo de Capa de Aplicación):
+   
+- El navegador utiliza el protocolo HTTP para solicitar la página web al servidor.
+- Esta solicitud HTTP se crea y procesa en la capa de aplicación.
+
+3. Capas Inferiores:
+
+- Capa de Transporte (TCP): HTTP utiliza TCP para asegurar que la solicitud llegue correctamente al servidor.
+- Capa de Internet (IP): TCP/IP maneja el direccionamiento y el enrutamiento para llevar la solicitud a través de Internet.
+- Capa de Acceso a la Red: Los datos se transmiten físicamente a través de la red local (por ejemplo, a través de Ethernet o Wi-Fi).
 
 # SSH (Secure Shell protocol)
 Es un protocolo de red popular que nos permite acceder a una computadora remota a traves de una red 
