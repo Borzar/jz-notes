@@ -14,22 +14,6 @@ Protocolos Comunes:
 
 - Ethernet, Wi-Fi, TCP/IP.
 
-# Web (World Wide Web)
-
-La web es un sistema de información que utiliza Internet para acceder a documentos y otros recursos interconectados mediante hipervínculos.
-
-Los recursos de la web se identifican mediante URLs (Uniform Resource Locators).
-
-Componentes:
-
-- Páginas Web: Documentos de información que pueden contener texto, imágenes, videos y otros elementos multimedia.
-- Navegadores Web: Aplicaciones que permiten a los usuarios acceder y visualizar páginas web (por ejemplo, Chrome, Firefox).
-
-Protocolos Comunes:
-
-- HTTP/HTTPS: Protocolos utilizados para transferir páginas web entre servidores y navegadores.
-- HTML (Hypertext Markup Language): Lenguaje utilizado para crear y estructurar páginas web.
-
 # Internet
 
 La Internet es una red global que conecta millones de redes locales y dispositivos en todo el mundo.
@@ -45,6 +29,22 @@ Componentes:
 - Proveedores de Servicios de Internet (ISP): Empresas que proporcionan acceso a Internet.
 - Backbones de Internet: Grandes redes de alta velocidad que transportan datos a través de largas distancias.
 - Puntos de Presencia (PoP): Lugares donde los usuarios se conectan a la red de su ISP.
+
+# Web (World Wide Web)
+
+La web es un sistema de información que utiliza Internet para acceder a documentos y otros recursos interconectados mediante hipervínculos.
+
+Los recursos de la web se identifican mediante URLs (Uniform Resource Locators).
+
+Componentes:
+
+- Páginas Web: Documentos de información que pueden contener texto, imágenes, videos y otros elementos multimedia.
+- Navegadores Web: Aplicaciones que permiten a los usuarios acceder y visualizar páginas web (por ejemplo, Chrome, Firefox).
+
+Protocolos Comunes:
+
+- HTTP/HTTPS: Protocolos utilizados para transferir páginas web entre servidores y navegadores.
+- HTML (Hypertext Markup Language): Lenguaje utilizado para crear y estructurar páginas web.
 
 # Relación entre Red e Internet y la Web
 
