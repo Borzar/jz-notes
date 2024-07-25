@@ -110,11 +110,16 @@ Actualmente la mayoría de ordenadores están conectados a alguna red (internet,
 
 La definición de TCP/IP es la identificación del grupo de protocolos (TCP e IP) de red que hacen posible la transferencia de datos en redes, entre equipos informáticos e internet. Las siglas TCP/IP hacen referencia a este grupo de protocolos:
 
-- TCP es el Protocolo de Control de Transmisión: permite la conexión entre dos dispositivos (emisor y receptor) a través de internet u otras redes y el intercambio de datos (redirecciona o dirigir los datos a un dispositivo receptor a traves de los puertos). TCP se asegura de que los datos lleguen completos  y sin pérdidas y en el orden correcto, se pueden retransmitir si es necesario.
+- TCP es el Protocolo de Control de Transmisión: permite la conexión entre dos dispositivos (emisor y receptor) a través de internet u otras redes y el intercambio de datos. TCP se asegura de que los datos lleguen completos  y sin pérdidas y en el orden correcto, se pueden retransmitir si es necesario.
 - TCP tambien utiliza números de puerto para redireccionar o dirigir los datos a la aplicación o servicio correcto en el dispositivo receptor. Hay numerosos números de puerto, y son una parte esencial de cómo funciona Internet.
 - TCP se encarga de dividir los datos en segmentos (paquetes), enviarlos de manera confiable al destino.
 - Puertos: Son servicios que estan corriendo en un servidor o ordenador. Por ejemplo los servidores tienen puertos específicos abiertos para escuchar conexiones entrantes
-- IP o protocolo de internet, utiliza direcciones series de cuatro octetos con formato de punto decimal (como por ejemplo 75.4.160.25). Este protocolo lleva los datos a otras máquinas de la red.
+- IP o protocolo de internet, utiliza direcciones series de cuatro octetos con formato de punto decimal (como por ejemplo 75.4.160.25). Es protocolo identifica y localiza los dispositivos en una red así como la entrega de paquetes de datos entre dispositivos.
+
+Relacion entre TCP e IP:
+- TCP se asegura de que los datos lleguen de manera confiable y en el orden correcto. Establece una conexión, segmenta los datos en paquetes.
+- TCP utiliza números de puerto para dirigir los datos a la aplicación o servicio correcto en el dispositivo receptor.
+- IP maneja el enrutamiento de los paquetes a través de la red. Identifica los dispositivos en una red y hace la entrega de los paquetes de datos.
 
 ## Ejemplo: 
 
