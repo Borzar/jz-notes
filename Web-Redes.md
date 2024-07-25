@@ -1,10 +1,74 @@
-# Protocolos (En construccion)
+# WEB Y REDES (En construccion)
 
-# HTTP
+# Red (Network)
+Una red es un conjunto de computadoras y otros dispositivos interconectados que pueden comunicarse entre sí y compartir recursos (como archivos, impresoras, y conexiones a Internet).
 
-HTTP (HyperText Transfer Protocol) es un protocolo de comunicación utilizado para transferir datos a través de la World Wide Web (web).
+Tipos de Redes:
 
-HTTP define cómo los mensajes se formatean y transmiten, y cómo los navegadores web y servidores web deben responder a diversas solicitudes.
+- LAN (Local Area Network): Red local, como la de una oficina o una casa.
+- WAN (Wide Area Network): Red de área amplia, que conecta redes locales a través de grandes distancias, como Internet.
+- MAN (Metropolitan Area Network): Red de área metropolitana, que abarca una ciudad o campus universitario.
+- PAN (Personal Area Network): Red personal, que conecta dispositivos a corta distancia, como un teléfono móvil con auriculares Bluetooth.
+
+Protocolos Comunes:
+
+- Ethernet, Wi-Fi, TCP/IP.
+
+# Web (World Wide Web)
+
+La web es un sistema de información que utiliza Internet para acceder a documentos y otros recursos interconectados mediante hipervínculos.
+
+Los recursos de la web se identifican mediante URLs (Uniform Resource Locators).
+
+Componentes:
+
+- Páginas Web: Documentos de información que pueden contener texto, imágenes, videos y otros elementos multimedia.
+- Navegadores Web: Aplicaciones que permiten a los usuarios acceder y visualizar páginas web (por ejemplo, Chrome, Firefox).
+
+Protocolos Comunes:
+
+- HTTP/HTTPS: Protocolos utilizados para transferir páginas web entre servidores y navegadores.
+- HTML (Hypertext Markup Language): Lenguaje utilizado para crear y estructurar páginas web.
+
+# Internet
+
+La Internet es una red global que conecta millones de redes locales y dispositivos en todo el mundo.
+
+Permite el acceso a servicios y aplicaciones como la web, el correo electrónico, la mensajería instantánea, y más
+
+Protocolos comunes:
+
+- TCP/IP
+
+Componentes:
+
+- Proveedores de Servicios de Internet (ISP): Empresas que proporcionan acceso a Internet.
+- Backbones de Internet: Grandes redes de alta velocidad que transportan datos a través de largas distancias.
+- Puntos de Presencia (PoP): Lugares donde los usuarios se conectan a la red de su ISP.
+
+# Relación entre Red e Internet y la Web
+
+## Internet:
+
+- Es la red global que conecta múltiples redes locales, permitiendo la comunicación y el intercambio de datos a nivel mundial.
+- Usa el conjunto de protocolos TCP/IP para asegurar que los datos se transmitan correctamente entre diferentes dispositivos y redes.
+- La web (World Wide Web) es solo una de las muchas aplicaciones que funcionan sobre Internet. Otras aplicaciones incluyen correo electrónico, FTP, y mensajería instantánea.
+
+## La Web:
+
+- Es un servicio específico que se ejecuta sobre Internet.
+- Utiliza la infraestructura de Internet para permitir el acceso y la navegación a través de documentos y recursos enlazados mediante hipervínculos.
+
+# Red:
+
+- Puede referirse a cualquier sistema interconectado de computadoras y dispositivos, ya sea local o global.
+- ejemplos: La red de una empresa (LAN), la red de un campus universitario (MAN).
+
+# HTTP (HyperText Transfer Protocol)
+
+Es un protocolo de comunicacion que permite la trasferencia de datos a traves de la web (World Wide Web).
+
+HTTP define cómo los mensajes transmiten y cómo los navegadores web y servidores web deben responder a diversas solicitudes.
 
 Define cómo se formulan (estructuran) las solicitudes y respuestas.
 
@@ -12,7 +76,7 @@ Define cómo se formulan (estructuran) las solicitudes y respuestas.
 
 Es un Protocolo de Capa de Aplicación:
 
-HTTP opera en la capa de aplicación del modelo OSI (Open Systems Interconnection) y del modelo TCP/IP.
+HTTP opera en la capa de aplicación del modelo OSI (Open Systems Interconnection) y del modelo TCP/IP. 
 
 ## Métodos HTTP:
 
@@ -40,9 +104,10 @@ Proporcionan metadatos sobre la solicitud o respuesta. Ejemplos: Content-Type, C
 - El servidor responde con un mensaje HTTP que incluye un código de estado (por ejemplo, 200 OK), encabezados HTTP y el cuerpo del mensaje (como el HTML de una página web).
 - Cliente recibe la respuesta y procesa los datos según corresponda (por ejemplo, renderizando una página web).
 
-# TCP/IP  (Transmission Control Protocol/Internet Protocol)
+# Modelo (no un protocolo en si) TCP/IP  (Transmission Control Protocol/Internet Protocol)
 
-Es un conjunto de protocolos de comunicación que <b><i>permite que un equipo pueda comunicarse con otro dentro de una red y define cómo los datos se transmiten a través de una red</i></b>. Está compuesto por cuatro capas :  
+El modelo TCP/IP es un conjunto de protocolos de comunicación que <b><i>permite que un equipo pueda comunicarse con otro dentro de una red y define cómo los datos se transmiten a través de una red</i></b>. 
+Está compuesto por cuatro capas:  
 
 ## Capa de Acceso a la Red (o Capa de Enlace):
 
@@ -63,7 +128,7 @@ Ejemplo: TCP divide los datos en segmentos, los envía, y asegura que lleguen en
 
 ## Capa de Aplicación:
 
-Es la capa de aplicación que directamente interactúa con los programas que el usuario utiliza, como navegadores web, clientes de correo, y aplicaciones de transferencia de archivos.
+La capa de aplicación es la que directamente interactúa con los programas que el usuario utiliza, como navegadores web, clientes de correo, y aplicaciones de transferencia de archivos.
 
 Es la capa más alta y donde se ejecutan los protocolos que interactúan con el software de la aplicación.
 Ejemplo: HTTP para navegar por la web, SMTP para enviar correos electrónicos, FTP para transferir archivos.
