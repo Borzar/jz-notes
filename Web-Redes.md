@@ -109,11 +109,10 @@ Proporcionan metadatos sobre la solicitud o respuesta. Ejemplos: Content-Type, C
 Actualmente la mayoría de ordenadores están conectados a alguna red (internet, intranet, etc.) y casi todos lo hacen utilizando el modelo TCP/IP. Este modelo es un protocolo para comunicación en redes que permite que un equipo pueda comunicarse dentro de una red.
 
 La definición de TCP/IP es la identificación del grupo de protocolos (TCP e IP) de red que hacen posible la transferencia de datos en redes, entre equipos informáticos e internet. Las siglas TCP/IP hacen referencia a este grupo de protocolos:
-
-- TCP es el Protocolo de Control de Transmisión: permite la conexión entre dos dispositivos (emisor y receptor por medio de puertos) a través de internet u otras redes y el intercambio de datos. TCP se asegura de que los datos lleguen completos  y sin pérdidas y en el orden correcto, se pueden retransmitir si es necesario.
-- TCP tambien utiliza números de puerto para redireccionar o dirigir los datos a la aplicación o servicio correcto en el dispositivo receptor. Hay numerosos números de puerto, y son una parte esencial de cómo funciona Internet.
+ 
+- TCP es el Protocolo de Control de Transmisión: Es un protocolo para transmision de datos que permite la conexión entre dos dispositivos (emisor y receptor) por medio de puertos a través de internet u otras redes y el intercambio de datos. TCP se asegura de que los datos lleguen completos  y sin pérdidas y en el orden correcto, se pueden retransmitir si es necesario.
+- Puertos: Son servicios que estan corriendo en un servidor o ordenador. Por ejemplo los servidores tienen puertos específicos abiertos para escuchar conexiones entrantes. Los números de puerto se utilizan para redireccionar o dirigir los datos a la aplicación o servicio correcto en el dispositivo receptor.
 - TCP se encarga de dividir los datos en segmentos (paquetes), enviarlos de manera confiable al destino.
-- Puertos: Son servicios que estan corriendo en un servidor o ordenador. Por ejemplo los servidores tienen puertos específicos abiertos para escuchar conexiones entrantes
 - IP o protocolo de internet, utiliza direcciones series de cuatro octetos con formato de punto decimal (como por ejemplo 75.4.160.25). Es protocolo identifica y localiza los dispositivos en una red así como la entrega de paquetes de datos entre dispositivos.
 
 Relacion entre TCP e IP:
