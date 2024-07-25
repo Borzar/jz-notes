@@ -110,7 +110,7 @@ Actualmente la mayoría de ordenadores están conectados a alguna red (internet,
 
 La definición de TCP/IP es la identificación del grupo de protocolos (TCP e IP) de red que hacen posible la transferencia de datos en redes, entre equipos informáticos e internet. Las siglas TCP/IP hacen referencia a este grupo de protocolos:
 
-- TCP es el Protocolo de Control de Transmisión: permite la conexión entre dos dispositivos (emisor y receptor) a través de internet u otras redes y el intercambio de datos. TCP se asegura de que los datos lleguen completos  y sin pérdidas y en el orden correcto, se pueden retransmitir si es necesario.
+- TCP es el Protocolo de Control de Transmisión: permite la conexión entre dos dispositivos (emisor y receptor por medio de puertos) a través de internet u otras redes y el intercambio de datos. TCP se asegura de que los datos lleguen completos  y sin pérdidas y en el orden correcto, se pueden retransmitir si es necesario.
 - TCP tambien utiliza números de puerto para redireccionar o dirigir los datos a la aplicación o servicio correcto en el dispositivo receptor. Hay numerosos números de puerto, y son una parte esencial de cómo funciona Internet.
 - TCP se encarga de dividir los datos en segmentos (paquetes), enviarlos de manera confiable al destino.
 - Puertos: Son servicios que estan corriendo en un servidor o ordenador. Por ejemplo los servidores tienen puertos específicos abiertos para escuchar conexiones entrantes
