@@ -104,18 +104,42 @@ Proporcionan metadatos sobre la solicitud o respuesta. Ejemplos: Content-Type, C
 - El servidor responde con un mensaje HTTP que incluye un código de estado (por ejemplo, 200 OK), encabezados HTTP y el cuerpo del mensaje (como el HTML de una página web).
 - Cliente recibe la respuesta y procesa los datos según corresponda (por ejemplo, renderizando una página web).
 
-# Modelo (no un protocolo en si) TCP/IP  (Transmission Control Protocol/Internet Protocol)
+# Modelo TCP/IP  (Transmission Control Protocol/Internet Protocol)
 
 Actualmente la mayoría de ordenadores están conectados a alguna red (internet, intranet, etc.) y casi todos lo hacen utilizando el modelo TCP/IP. Este modelo es un protocolo para comunicación en redes que permite que un equipo pueda comunicarse dentro de una red.
 
 La definición de TCP/IP es la identificación del grupo de protocolos (TCP e IP) de red que hacen posible la transferencia de datos en redes, entre equipos informáticos e internet. Las siglas TCP/IP hacen referencia a este grupo de protocolos:
 
-- TCP es el Protocolo de Control de Transmisión que permite establecer una conexión y el intercambio de datos entre dos anfitriones. Este protocolo proporciona un transporte fiable de datos.
-- IP o protocolo de internet, utiliza direcciones series de cuatro octetos con formato de punto decimal (como por ejemplo 75.4.160.25). Este protocolo lleva los datos (paquetes mas pequeños) a otras máquinas de la red.
-  
+- TCP es el Protocolo de Control de Transmisión: permite la conexión entre dos dispositivos (emisor y receptor) a través de internet u otras redes y el intercambio de datos (se encarga al envio de datos). TCP se asegura de que los datos lleguen completos  y sin pérdidas y en el orden correcto, se pueden retransmitir si es necesario.
+- TCP tambien utiliza números de puerto para redireccionar o dirigir los datos a la aplicación o servicio correcto en el dispositivo receptor. Hay numerosos números de puerto, y son una parte esencial de cómo funciona Internet.
+- TCP se encarga de dividir los datos en segmentos (paquetes), enviarlos de manera confiable al destino.
+- Puertos: Son servicios que estan corriendo en un servidor o ordenador. Por ejemplo los servidores tienen puertos específicos abiertos para escuchar conexiones entrantes
+- IP o protocolo de internet, utiliza direcciones series de cuatro octetos con formato de punto decimal (como por ejemplo 75.4.160.25). Este protocolo lleva los datos a otras máquinas de la red.
+
+## Ejemplo: 
+
+Tipos de Datos Enviados a Través de TCP.
+
+1. Solicitud HTTP/HTTPS:
+
+- Cuando un cliente (por ejemplo, un navegador web) se conecta a un servidor web, normalmente envía una solicitud HTTP o HTTPS.
+- Esta solicitud puede incluir diferentes tipos de datos, como:
+  - Método HTTP: Como GET, POST, PUT, DELETE.
+  - URL: La dirección del recurso que el cliente está solicitando.
+  - Encabezados HTTP: Información adicional sobre la solicitud, como el tipo de contenido que el cliente acepta (Accept), la información del agente de usuario (User-Agent), cookies, etc.
+  - Cuerpo de la Solicitud: En solicitudes POST o PUT, puede incluir datos que el cliente está enviando al servidor, como formularios de datos o cargas de archivos.
+
+2. Respuesta HTTP/HTTPS:
+
+- El servidor web responde con una respuesta HTTP o HTTPS que también utiliza TCP para la transmisión.
+- La respuesta puede incluir:
+  - Código de Estado HTTP: Como 200 OK, 404 Not Found, 500 Internal Server Error.
+  - Encabezados HTTP: Información adicional sobre la respuesta, como el tipo de contenido (Content-Type), longitud del contenido (Content-Length), etc.
+  - Cuerpo de la Respuesta: El contenido solicitado por el cliente, que puede ser una página HTML, un archivo de imagen, datos JSON, etc.
+ 
 ***Define cómo se envían y reciben los datos a través de la red de Internet*** 
 
-Está compuesto por cuatro niveles o capas:  
+El modelo TCP/IP está compuesto por cuatro niveles o capas:  
 
 1. Capa de Acceso a la Red (o Capa de Enlace):
 
