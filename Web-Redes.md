@@ -106,27 +106,37 @@ Proporcionan metadatos sobre la solicitud o respuesta. Ejemplos: Content-Type, C
 
 # Modelo (no un protocolo en si) TCP/IP  (Transmission Control Protocol/Internet Protocol)
 
-El modelo TCP/IP es un conjunto de protocolos de comunicación que <b><i>permite que un equipo pueda comunicarse con otro dentro de una red y define cómo los datos se transmiten a través de una red</i></b>. 
-Está compuesto por cuatro capas:  
+Actualmente la mayoría de ordenadores están conectados a alguna red (internet, intranet, etc.) y casi todos lo hacen utilizando el modelo TCP/IP. Este modelo es un protocolo para comunicación en redes que permite que un equipo pueda comunicarse dentro de una red.
 
-## Capa de Acceso a la Red (o Capa de Enlace):
+La definición de TCP/IP es la identificación del grupo de protocolos (TCP e IP) de red que hacen posible la transferencia de datos en redes, entre equipos informáticos e internet. Las siglas TCP/IP hacen referencia a este grupo de protocolos:
 
+- TCP es el Protocolo de Control de Transmisión que permite establecer una conexión y el intercambio de datos entre dos anfitriones. Este protocolo proporciona un transporte fiable de datos.
+- IP o protocolo de internet, utiliza direcciones series de cuatro octetos con formato de punto decimal (como por ejemplo 75.4.160.25). Este protocolo lleva los datos (paquetes mas pequeños) a otras máquinas de la red.
+  
+***Define cómo se envían y reciben los datos a través de la red de Internet*** 
+
+Está compuesto por cuatro niveles o capas:  
+
+1. Capa de Acceso a la Red (o Capa de Enlace):
+
+Es la primera capa del modelo. 
+ 
 Función: Maneja la transmisión de datos en la red física. Incluye tecnologías como Ethernet y Wi-Fi.
 Ejemplo: La tarjeta de red de tu computadora enviando bits a través de un cable Ethernet.
 
-## Capa de Internet:
+2. Capa de Red o Internet:
 
-Función: Maneja el direccionamiento y el enrutamiento de los datos a través de la red global (Internet).
-El protocolo principal en esta capa es el IP (Internet Protocol). Este protocolo lleva los datos a otras máquinas de la red.
+Función: Proporciona el paquete de datos y maneja el direccionamiento y el enrutamiento de los datos a través de la red global (Internet).
+El protocolo principal en esta capa es el IP (Internet Protocol).
 Ejemplo: Un paquete IP que contiene la dirección IP de origen y destino
 
-## Capa de Transporte:
+3. Capa de Transporte: 
 
 Función: Asegura que los datos se transmitan de manera confiable entre sistemas finales.
 Protocolos principales: TCP (Transmission Control Protocol) y UDP (User Datagram Protocol).
 Ejemplo: TCP divide los datos en segmentos, los envía, y asegura que lleguen en orden y sin errores.
 
-## Capa de Aplicación:
+4. Capa de Aplicación:
 
 La capa de aplicación es la que directamente interactúa con los programas que el usuario utiliza, como navegadores web, clientes de correo, y aplicaciones de transferencia de archivos.
 
