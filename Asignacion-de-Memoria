@@ -1,1 +1,66 @@
 # Asignacion de memoria (Memory Allocation)
+
+La asignacion de memoria se refiere al proceso de reservar un espacio en memoria para el uso de un programa en ejecucion.
+Este proceso es fundamental en la programacion y en el funcionamiento de los sistemas operativos, ya que garantiza que los programas
+puedan almacenar y acceder a datos mientras se ejecutan.
+
+## Memoria Stack
+- El stack es una estructura de datos que sigue el principio Last In, First Out (LIFO). 
+- Es utilizado para almacenar variables locales, parámetros de funciones, y datos temporales durante la ejecución de un programa.
+- Tipos de datos del Stack:
+  - int, short, long.
+  - char
+  - float
+  - bool
+
+## Memoria Heap
+- El stack es una estructura de datos que sigue el principio Last In, First Out (LIFO). 
+- Es utilizado para almacenar variables locales, parámetros de funciones, y datos temporales durante la ejecución de un programa.
+- Tipos de datos del Stack:
+  - int, short, long.
+  - char
+  - float
+  - bool
+
+## Asignacion Estatica:
+- Ocurre en tiempo de compilacion
+- La cantidad de memoria requerida y el espacio reservado son conocidos y no cambian durante la ejecución del programa.
+- Se utiliza en variables globales y variables globales estaticas.
+- Ejemplo en C:
+'''
+static int a; // Asignacion estatica
+'''  
+
+## Asignacion Dinamica (Stack)
+Se refiere a un proceso en el que el sistema o el entorno de ejecución maneja automáticamente la asignación y liberación de memoria, sin 
+intervención explícita por parte del programador.
+- Ocurre en tiempo de ejecucion.
+- Cuando se llama a una función, se reserva espacio en el Stack para las variables locales (int.char,bool, etc) y Los parámetros de la función.
+  - Estas variables permanecen en la pila durante la duración de la ejecución de la función.
+  - Cuando la función termina su ejecución y retorna (o sea tipo void), el espacio en la pila utilizado por las variables locales y los parámetros se libera automáticamente.
+  - Si se pasa un objeto como parametro, si es por valor, se crea una copia del objeto en el Stack para usarlo adentro de la funcion. (C y C++)
+  - Si es por referencia, es decir, que cualquier cambio realizado afecta al objeto original, la liberacion de memoria se gestiona en el contexto donde se creo el 
+objeto, no en la funcion. La liberacion de memoria se realiza de mandera estandar, como si la funcion no hubiera existido.
+- La memoria se libera automaticamente cuando la funcion retorna.
+- Ejemplo en C:
+'''
+void function() {
+    int b; // Asignación automática
+}
+'''
+
+## Asignacion Dinamica (Heap)
+- Ocurre en tiempo de ejecucion.
+- La cantidad de memoria a asignar no nececita ser conocida de antemano.
+- La memoria debe ser liberada manualmente para evitar fugas de memoria (Gestionada manualmente o por el Garbage Collector).
+- Se utiliza para estructuras de datos dinamicas como listas y arboles, clases y objetos.
+- Ejemplo en C:
+'''
+int *ptr = (int *)malloc(sizeof(int) * 10); // Asignación dinámica
+free(ptr); // Liberación de memoria
+'''
+
+## Resumen:
+-C y C++: La memoria asignada dinámicamente debe ser liberada manualmente utilizando free en C o delete en C++.
+- Cuando hay una asignación dinámica dentro de una función, la memoria asignada en el Heap no se libera automáticamente cuando la función retorna. 
+Debe ser gestionada manualmente por el programador, independientemente de lo que la función retorne.
