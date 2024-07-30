@@ -1,10 +1,28 @@
 # Asignacion de memoria (Memory Allocation)
 
-La asignacion de memoria se refiere al proceso de reservar un espacio en memoria para el uso de un programa en ejecucion.
+La asignacion de memoria se refiere al proceso de reservar un espacio en memoria del sistema (RAM) para el uso de un programa en ejecucion.
 Este proceso es fundamental en la programacion y en el funcionamiento de los sistemas operativos, ya que garantiza que los programas
 puedan almacenar y acceder a datos mientras se ejecutan.
 
-## Memoria Stack
+## Tipos de memoria
+
+### Memoria Stack
+- El stack es una estructura de datos que sigue el principio Last In, First Out (LIFO). 
+- <b>Uso:</b> Es utilizado para almacenar variables locales, parámetros de funciones, y datos temporales durante la ejecución de un programa.
+- <b>Asignacion Dinamica:</b> 
+  - Asignacion dinamica se refiere al proceso de reservar espacio en memoria en tiempo de ejecucion, en lugar de hacerlo en tiempo de compilacion. 
+  - La memoria Stack maneja automáticamente la asignación y liberación de memoria, sin intervención explícita por parte del programador. 
+  - Cuando una funcion es llamada, se crea un nuevo stack frame (reserva de espaco en el stack) que contiene las variables
+locales y parametros de una funcion. Al finzalizar la funcion, el stack frame se destruye y la memoria se libera.
+  - 
+- <b>Ventajas:</b> Rapida y de gestion automatica
+- Tipos de datos del Stack:
+  - int, short, long.
+  - char
+  - float
+  - bool
+
+### Memoria Heap
 - El stack es una estructura de datos que sigue el principio Last In, First Out (LIFO). 
 - Es utilizado para almacenar variables locales, parámetros de funciones, y datos temporales durante la ejecución de un programa.
 - Tipos de datos del Stack:
@@ -13,19 +31,15 @@ puedan almacenar y acceder a datos mientras se ejecutan.
   - float
   - bool
 
-## Memoria Heap
-- El stack es una estructura de datos que sigue el principio Last In, First Out (LIFO). 
-- Es utilizado para almacenar variables locales, parámetros de funciones, y datos temporales durante la ejecución de un programa.
-- Tipos de datos del Stack:
-  - int, short, long.
-  - char
-  - float
-  - bool
-
-## Asignacion Estatica:
-- Ocurre en tiempo de compilacion
+### Segmento de Datos:
+- Se ubica dentro de la memoria ram.
+- Está diseñado para contener variables globales y estáticas.
+- Estas variables tienen una duración de almacenamiento que abarca toda la ejecución del programa.
 - La cantidad de memoria requerida y el espacio reservado son conocidos y no cambian durante la ejecución del programa.
 - Se utiliza en variables globales y variables globales estaticas.
+  - <b>Variables Globales:</b> Declaradas fuera de cualquier funcion.
+  - <b>Variables Estáticas:</b> Pueden ser variables globales o locales (dentro de una función) declaradas con la palabra clave static. 
+También existen durante toda la vida del programa.
 - Ejemplo en C:
 '''
 static int a; // Asignacion estatica
