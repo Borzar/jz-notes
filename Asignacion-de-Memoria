@@ -15,7 +15,7 @@ puedan almacenar y acceder a datos mientras se ejecutan.
   - Cuando una funcion es llamada, se crea un nuevo stack frame (reserva de espaco en el stack) que contiene las variables.
 locales y parametros de una funcion. Al finzalizar la funcion, el stack frame se destruye y la memoria se libera.
   - Si se pasa un objeto como parametro, si es por valor, se crea una copia del objeto en el Stack para usarlo adentro de la funcion. (C y C++)
-  - Si es por referencia, es decir, que cualquier cambio realizado afecta al objeto original, la liberacion de memoria se gestiona en el contexto donde se creo el 
+  - Si es por referencia (C# y Java), es decir, que cualquier cambio realizado afecta al objeto original, la liberacion de memoria se gestiona en el contexto donde se creo el 
 objeto, no en la funcion. 
 - <b>Ventajas:</b> Rapida y de gestion automatica
 - Tipos de datos del Stack:
