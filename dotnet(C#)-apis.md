@@ -852,7 +852,19 @@ Agregar, eliminar, buscar e insertar datos en la coleccion, son algunos ejemplos
 - Queue<T>
 
 ## Linq
-Lenguaje de consulta de .net. Generalmente utilizado para  consultas a las bases de datos
+
+LINQ (Language Integrated Query) es un conjunto de métodos en C# que permite consultar y manipular colecciones de datos de una forma declarativa.
+Es un Lenguaje de consulta que permite consultar y manipular colecciones de datos de una forma declarativa.
+
+LINQ se puede aplicar a cualquier colección que implemente IEnumerable<T> o IQueryable<T>, incluyendo arrays, listas, bases de datos, XML y más..
+
+### Métodos Principales de LINQ
+
+![image](https://github.com/user-attachments/assets/0d21a9aa-051d-4205-a8ce-eed1363320ff)
+![image](https://github.com/user-attachments/assets/b591288f-f6d3-47c9-a359-bda47237bdd0)
+![image](https://github.com/user-attachments/assets/5d306991-83e6-476a-831d-b3e59bec1c1e)
+
+
 
 ## readonly
 Valor puede cambiar en el constructor 
