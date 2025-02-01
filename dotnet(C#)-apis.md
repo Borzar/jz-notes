@@ -720,12 +720,18 @@ Queue<T>
 Stack<T>
 
 `PERMITE` IEnumerable<T> solo proporciona el contrato para la iteración de los elementos.
+
 `PERMITE` Permite utilizar un bucle foreach.
+
 `PERMITE` Es una interfaz que permite ejecutar consultas LINQ.
+
 `PERMITE` utilizar el metodo .Count() de LINQ (distinto que .Count, la propiedad aplicable solo a la Interfaz ICollection y IList).  
+
 `NO PERMITE` Acceso directo por índice ni operaciones de edicion sobre los elementos (agregar, eliminar, actualizar, etc)
+
 *** OJO CON ESTO: A PESAR QUE IENUMERABLE NO SE PUEDAN ACCEDER MEDIANTE SUS INDICES, MUCHAS COLECCIONES COMO ARRAYS IMPLEMENTAN ADEMAS DE IENUMERABLE, IMPLEMENTAN
 ILIST. ES POR ESTO QUE EN LOS ARRAYS SE PUEDE ACCEDER A SUS INDICES (MIARRAY[2]). ***
+
 `CUANDO USAR` Para iterar sobre una colección. Se usa comúnmente con foreach.
 
 CONCLUSION: Cualquier colección que pueda recorrerse con foreach en C# implementa IEnumerable<T>, lo que permite usar LINQ para filtrar, transformar y consultar datos.
