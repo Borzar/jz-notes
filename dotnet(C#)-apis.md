@@ -740,24 +740,39 @@ CONCLUSION: Cualquier colección que pueda recorrerse con foreach en C# implemen
 
 Deriva directamente de IEnumerable. 
 
+Es una interfaz más básica, útil para colecciones donde no necesitas acceso por índice. Permite agregar, eliminar, contar elementos y verificar si un elemento existe.
+
 `PERMITE` agregar, editar, eliminar y contar los elementos de una coleccion.
 
 `PERMITE` permite el uso de la propiedad .Count (mejor rendimiento que Count() de LINQ).
 
 `CUANDO USAR` Cuando es necesario modificar la coleccion o se necesita su tamaño. 
 
+![image](https://github.com/user-attachments/assets/02f05807-fc7f-4178-84f8-64a998763da3)
+
+
 ### IList
 
 Deriva directamente de IColecction
 
-Reune todos las caracteristicas de IEnumerable y IColecction, 
+Reune todos las caracteristicas de IEnumerable y IColecction.
+
+Agrega capacidades para trabajar con elementos a través de índices, permitiendo inserciones, eliminaciones y acceso directo por índice.
 
 `PERMITE` Agrega la funcionalidad de indexacion, esto significa que la posicion en la 
 que se almacenan los datos es importante. Debera usarse cuando se quiera tener una coleccion ordenada o acceder a posiciones especificas.
 
-`CUANDO USAR` Cuando es necesario modfiicar la coleccion y se nececita ordenamiento y/o posicionamiento de los elementos de la coleccion. 
+`CUANDO USAR` Cuando es necesario modfiicar la coleccion y se nececita ordenamiento y/o posicionamiento y accesos sus indices de los elementos de la coleccion. 
+
+![image](https://github.com/user-attachments/assets/32bc7bdc-46c0-4b06-bc1b-bc695f57c853)
+
 
 ***Si no estas seguro sobre que coleccion utilizar IList siempre es la "vieja confiable.***
+
+### Resumen Metodos de Interfaces (ICollection y IList)
+
+![image](https://github.com/user-attachments/assets/b0038ae0-2a66-42c2-83d0-2b72e5307215)
+
 
 ### IList vs List
 
