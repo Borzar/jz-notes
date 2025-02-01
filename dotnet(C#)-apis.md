@@ -696,7 +696,6 @@ elementos de diferentes tipos y pueden ser mas flexibles en terminos de manipula
 
 Las colecciones como las Listas, pueden cambiar de tamaño dinamicamente.
 
-
 ## Interfaces
 
 En IEnumerable, ICollection e IList son interfaces en .NET, las cuales son utilizadas frecuentemente. IEnumerable 
@@ -707,47 +706,37 @@ Se encuentran en el namespace System.Colecctions.Generics
 
 IEnumerable > IColecction > IList
 
-
 ### IEnumerable
 
-Es una interfaz que se utiliza para representar una secuencia de elementos que se pueden iterar, pero no proporciona ningún método para modificar la secuencia. 
+IEnumerable<T> es la interfaz base para colecciones que proporcionan una forma de recorrer sus elementos, como arrays, listas, diccionarios, y muchas otras colecciones que implementan IEnumerable<T>.
 
-Utilice IEnumerable cuando necesite iterar sobre una secuencia de elementos, pero no necesite modificar la secuencia.
+Ejemplos comunes que implementan IEnumerable<T>:
 
-Algunos escenarios en los que se puede utilizar IEnumerable:
+List<T>
+T[] (arrays)  (implementa ademas de IEnumerable tambien IList, por lo tanto se puede acceder a sus indices)
+Dictionary<TKey, TValue>
+HashSet<T>
+Queue<T>
+Stack<T>
 
-    - Es una interfaz que permite ejecutar consultas LINQ.
-    - Cuando desea iterar sobre una colección de objetos usando un bucle foreach.
+`PERMITE` IEnumerable<T> solo proporciona el contrato para la iteración de los elementos.
+`PERMITE` Permite utilizar un bucle foreach.
+`PERMITE` Es una interfaz que permite ejecutar consultas LINQ.
+`PERMITE` utilizar el metodo .Count() de LINQ (distinto que .Count, la propiedad aplicable solo a la Interfaz ICollection y IList).  
+`NO PERMITE` Acceso directo por índice ni operaciones de edicion sobre los elementos (agregar, eliminar, actualizar, etc)
+*** OJO CON ESTO: A PESAR QUE IENUMERABLE NO SE PUEDAN ACCEDER MEDIANTE SUS INDICES, MUCHAS COLECCIONES COMO ARRAYS IMPLEMENTAN ADEMAS DE IENUMERABLE, IMPLEMENTAN
+ILIST. ES POR ESTO QUE EN LOS ARRAYS SE PUEDE ACCEDER A SUS INDICES (MIARRAY[2]). ***
+`CUANDO USAR` Para iterar sobre una colección. Se usa comúnmente con foreach.
 
-Por ejemplo el metodo ToList() esta disponible  en el contexto de las colecciones que implementan la interfaz IEnumerabl<T>.
-
-Estre metodo se encuentra en la clase System.Linq.Enumerable y proporciona una forma conveniente de convertir una secuencia
-(IEnumerable) en una lista (List<T>).
-
-(explicacion larga)
-
-IEnumerable es una interfaz en el framework .NET que define un método llamado GetEnumerator(). Este método devuelve un objeto que 
-implementa la interfaz IEnumerator. La interfaz IEnumerator a su vez proporciona métodos como MoveNext() y Current para realizar 
-la iteración a través de una colección de elementos, uno a la vez.
-
-Por ejemplo un Array ya implementa la interfaz IEnumerable, por lo que podemos iterar mediante un foreach.
-En terminos simples IEnumerable es una interfaz diseñada para facilitar la iteracion a traves de una secuencia de elementos, pero 
-no especifican como se alamacenan o estructuran esos elementos. Pueden ser implementadas por diversas estructuras de datos, 
-como arrays, listas, conjuntos y otros tipos de colecciones.
-
-`PERMITE` recorrer mediante itereacion `FOREACH` cada uno de los elementos y ejecutar filtros de busqueda con la clausula `WHERE`.
-
-`NO PERMITE` operaciones de edicion sobre los elementos (agregar, eliminar, actualizar, etc)
-
-`NO PERMITE` recuentos de dichos elementos, si quieres saber la cantidad total debes obtenerla manualmente mediante un foreach.
-
-`CUANDO USAR` Lo unico que quieres iterar sobre los elementos de una coleccion. Solo necesita acceso de solo lectura a esa coleccion.
+CONCLUSION: Cualquier colección que pueda recorrerse con foreach en C# implementa IEnumerable<T>, lo que permite usar LINQ para filtrar, transformar y consultar datos.
 
 ### ICollection
 
 Deriva directamente de IEnumerable. 
 
-`PERMITE` agregar, editar, eliminar y contar los elementos de una coleccion (.Count).
+`PERMITE` agregar, editar, eliminar y contar los elementos de una coleccion.
+
+`PERMITE` permite el uso de la propiedad .Count (mejor rendimiento que Count() de LINQ).
 
 `CUANDO USAR` Cuando es necesario modificar la coleccion o se necesita su tamaño. 
 
