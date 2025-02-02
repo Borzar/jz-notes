@@ -681,7 +681,7 @@ La carpeta bin contiene archivos binarios, que son el código ejecutable real pa
 
 Cada una de estas carpetas se subdivide en carpetas Debug(depurar) y Release(lanzar), que simplemente corresponden a las configuraciones de compilación del proyecto.
 
-## Diferencias entre un array y colecciones
+## Diferencias entre un Array y Colecciones
 Los arrays y colecciones son estructuras de datos en programacion que se utilizan para almacenar y manipular conjuntos
 de elementos, Pero hay algunas diferencias:
 
@@ -696,6 +696,16 @@ elementos de diferentes tipos y pueden ser mas flexibles en terminos de manipula
 
 Las colecciones como las Listas, pueden cambiar de tamaño dinamicamente.
 
+### Tipos de Colecciones
+
+Algunas colecciones son: 
+
+List<T>
+Dictionary<TKey, TValue>
+HashSet<T>
+Queue<T>
+Stack<T>
+
 ## Interfaces
 
 En IEnumerable, ICollection e IList son interfaces en .NET, las cuales son utilizadas frecuentemente. IEnumerable 
@@ -708,12 +718,12 @@ IEnumerable > IColecction > IList
 
 ### IEnumerable
 
-IEnumerable<T> es la interfaz base para colecciones que proporcionan una forma de recorrer sus elementos, como arrays, listas, diccionarios, y muchas otras colecciones que implementan IEnumerable<T>.
+IEnumerable<T> es la interfaz base para colecciones que proporcionan una forma de recorrer sus elementos, como arrays, listas, diccionarios, es decir, permite el recorrido de los elementos, generalmente con un foreach.
 
 Ejemplos comunes que implementan IEnumerable<T>:
 
 List<T>
-T[] (arrays)  (implementa ademas de IEnumerable tambien IList, por lo tanto se puede acceder a sus indices)
+T[] (arrays)
 Dictionary<TKey, TValue>
 HashSet<T>
 Queue<T>
@@ -723,14 +733,13 @@ Stack<T>
 
 `PERMITE` Permite utilizar un bucle foreach.
 
-`PERMITE` Es una interfaz que permite ejecutar consultas LINQ.
+`PERMITE` Es una interfaz que permite ejecutar metodos de extension de LINQ.
 
 `PERMITE` utilizar el metodo .Count() de LINQ (distinto que .Count, la propiedad aplicable solo a la Interfaz ICollection y IList).  
 
 `NO PERMITE` Acceso directo por índice ni operaciones de edicion sobre los elementos (agregar, eliminar, actualizar, etc)
 
-*** OJO CON ESTO: A PESAR QUE IENUMERABLE NO SE PUEDAN ACCEDER MEDIANTE SUS INDICES, MUCHAS COLECCIONES COMO ARRAYS IMPLEMENTAN ADEMAS DE IENUMERABLE, IMPLEMENTAN
-ILIST. ES POR ESTO QUE EN LOS ARRAYS SE PUEDE ACCEDER A SUS INDICES (MIARRAY[2]). ***
+*** los arrays implementan IEnumerable<T> ***
 
 `CUANDO USAR` Para iterar sobre una colección. Se usa comúnmente con foreach.
 
@@ -750,7 +759,6 @@ Es una interfaz más básica, útil para colecciones donde no necesitas acceso p
 
 ![image](https://github.com/user-attachments/assets/02f05807-fc7f-4178-84f8-64a998763da3)
 
-
 ### IList
 
 Deriva directamente de IColecction
@@ -766,13 +774,7 @@ que se almacenan los datos es importante. Debera usarse cuando se quiera tener u
 
 ![image](https://github.com/user-attachments/assets/32bc7bdc-46c0-4b06-bc1b-bc695f57c853)
 
-
 ***Si no estas seguro sobre que coleccion utilizar IList siempre es la "vieja confiable.***
-
-### Resumen Metodos de Interfaces (ICollection y IList)
-
-![image](https://github.com/user-attachments/assets/b0038ae0-2a66-42c2-83d0-2b72e5307215)
-
 
 ### IList vs List
 
@@ -853,18 +855,15 @@ Agregar, eliminar, buscar e insertar datos en la coleccion, son algunos ejemplos
 
 ## Linq
 
-LINQ (Language Integrated Query) es un conjunto de métodos en C# que permite consultar y manipular colecciones de datos de una forma declarativa.
-Es un Lenguaje de consulta que permite consultar y manipular colecciones de datos de una forma declarativa.
+LINQ (Language Integrated Query) son métodos de extension en C# que permiten ejecutar consultas sobre cualquier coleccion que implemente IEnumerable<T>.
 
-LINQ se puede aplicar a cualquier colección que implemente IEnumerable<T> o IQueryable<T>, incluyendo arrays, listas, bases de datos, XML y más..
+Ademas, LINQ se puede aplicar a cualquier colección que implemente IEnumerable<T> o IQueryable<T>, incluyendo arrays, listas, bases de datos, XML y más..
 
 ### Métodos Principales de LINQ
 
 ![image](https://github.com/user-attachments/assets/0d21a9aa-051d-4205-a8ce-eed1363320ff)
 ![image](https://github.com/user-attachments/assets/b591288f-f6d3-47c9-a359-bda47237bdd0)
 ![image](https://github.com/user-attachments/assets/5d306991-83e6-476a-831d-b3e59bec1c1e)
-
-
 
 ## readonly
 Valor puede cambiar en el constructor 
