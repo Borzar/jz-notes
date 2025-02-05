@@ -883,11 +883,31 @@ especifica (generalmente ejecuta después de que la función principal ha comple
 Por ejemplo la funcion seTimeout recibe un callback que se ejecutara segun los el tiempo
 señalado en la funcion
 
-## Conexion  base de datos MySqL con C#
-Comando.Parameters.Add("?var")  -> Se utiliza en consultas SQL con parametros y para evitar sql inyection. Si hay consultas o precedimientos con parametros, 
-los parametros son agregados mediante .add e indicar los parametros de la funcion.
+## Metodos Tipos de Datos
 
-comando.ExecuteNonQuery()       -> Para ejecutar una consulta contra la base de datos (INSERT, UPDATE, DELETE).
+## String
 
-comando.ExectuteReader()        -> Se utiliza para leer la base de datos. Para retornar los valores de la base de datos(GET).
+Propiedades:
+![image](https://github.com/user-attachments/assets/ab713414-99f8-4251-b0a3-4abf8a6185b5)
+
+Métodos estáticos de string:
+![image](https://github.com/user-attachments/assets/6123dd04-b493-4b1e-bf1e-916a3d006491)
+
+Métodos de instancia de string:
+![image](https://github.com/user-attachments/assets/87639769-cd0e-42eb-9ecd-ed823e892351)
+
+## Int
+Propiedades:
+![image](https://github.com/user-attachments/assets/fbdf6352-a7db-43b2-a61d-3cad8352c202)
+
+Metodos estaticos de int:
+![image](https://github.com/user-attachments/assets/d2929f2a-6d9e-4a27-90b4-cee5fbbdb649)
+
+Métodos de instancia de int:
+![image](https://github.com/user-attachments/assets/8f3dc205-e148-4ba5-a42f-9bb48fd5af75)
+
+Métodos adicionales útiles con int:
+![image](https://github.com/user-attachments/assets/253e7acb-6f16-45b2-8e64-9c8b1d5da903)
+
+
 
